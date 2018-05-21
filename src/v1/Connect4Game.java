@@ -134,7 +134,7 @@ public class Connect4Game {
                 }
             }
         }
-        //Right-up to left-down diagonal win
+        //Left-Down to Right-Up diagonal win
         for(int i = 0; i < 3; i++) {
             for(int j = 7; j < 15; j += 2) {
                 if(gameBoard[i][j] != ' ' && gameBoard[i + 1][j - 2] != ' ' &&
@@ -156,4 +156,402 @@ public class Connect4Game {
         return 0;
     }
 
+    public boolean isPlayableMove(int row, int column) {
+        boolean playable = false;
+        if (gameBoard[row + 1][column] != ' ' && (row >= 0 && row < 6)) {
+            playable = true;
+        }
+        return playable;
+    }
+
+    public boolean isWinnableMove(int row, int column) {
+        //Check for Horizontal Winning Move
+        if(column == 1) {
+            if(gameBoard[row][column + 2] != ' ' && (gameBoard[row][column + 2] == gameBoard[row][column + 4] &&
+                                                     gameBoard[row][column + 4] == gameBoard[row][column + 6])) {
+                return true;
+            }
+        }
+        else if(column == 3) {
+            if(gameBoard[row][column + 2] != ' ' && (gameBoard[row][column + 2] == gameBoard[row][column + 4] &&
+                                                     gameBoard[row][column + 4] == gameBoard[row][column + 6])) {
+                return true;
+            }
+            else if(gameBoard[row][column - 2] != ' ' && (gameBoard[row][column - 2] == gameBoard[row][column + 2] &&
+                                                          gameBoard[row][column + 2] == gameBoard[row][column + 4])) {
+                return true;
+            }
+        }
+        else if(column == 5) {
+            if(gameBoard[row][column + 2] != ' ' && (gameBoard[row][column + 2] == gameBoard[row][column + 4] &&
+                                                     gameBoard[row][column + 4] == gameBoard[row][column + 6])) {
+                return true;
+            }
+            else if(gameBoard[row][column - 2] != ' ' && (gameBoard[row][column - 2] == gameBoard[row][column + 2] &&
+                                                          gameBoard[row][column + 2] == gameBoard[row][column + 4])) {
+                return true;
+            }
+            else if(gameBoard[row][column - 4] != ' ' && (gameBoard[row][column - 4] == gameBoard[row][column - 2] &&
+                                                          gameBoard[row][column - 2] == gameBoard[row][column + 2])) {
+                return true;
+            }
+        }
+        else if(column == 7) {
+            if(gameBoard[row][column + 2] != ' ' && (gameBoard[row][column + 2] == gameBoard[row][column + 4] &&
+                                                     gameBoard[row][column + 4] == gameBoard[row][column + 6])) {
+                return true;
+            }
+            else if(gameBoard[row][column - 2] != ' ' && (gameBoard[row][column - 2] == gameBoard[row][column + 2] &&
+                                                          gameBoard[row][column + 2] == gameBoard[row][column + 4])) {
+                return true;
+            }
+            else if(gameBoard[row][column - 4] != ' ' && (gameBoard[row][column - 4] == gameBoard[row][column - 2] &&
+                                                          gameBoard[row][column - 2] == gameBoard[row][column + 2])) {
+                return true;
+            }
+            else if(gameBoard[row][column - 2] != ' ' && (gameBoard[row][column - 2] == gameBoard[row][column - 4] &&
+                                                          gameBoard[row][column - 4] == gameBoard[row][column - 6])) {
+                return true;
+            }
+        }
+        else if(column == 9) {
+            if(gameBoard[row][column - 2] != ' ' && (gameBoard[row][column - 2] == gameBoard[row][column + 2] &&
+                                                     gameBoard[row][column + 2] == gameBoard[row][column + 4])) {
+                return true;
+            }
+            else if(gameBoard[row][column - 4] != ' ' && (gameBoard[row][column - 4] == gameBoard[row][column - 2] &&
+                                                          gameBoard[row][column - 2] == gameBoard[row][column + 2])) {
+                return true;
+            }
+            else if(gameBoard[row][column - 2] != ' ' && (gameBoard[row][column - 2] == gameBoard[row][column - 4] &&
+                                                          gameBoard[row][column - 4] == gameBoard[row][column - 6])) {
+                return true;
+            }
+        }
+        else if(column == 11) {
+            if(gameBoard[row][column - 4] != ' ' && (gameBoard[row][column - 4] == gameBoard[row][column - 2] &&
+                                                     gameBoard[row][column - 2] == gameBoard[row][column + 2])) {
+                return true;
+            }
+            else if(gameBoard[row][column - 2] != ' ' && (gameBoard[row][column - 2] == gameBoard[row][column - 4] &&
+                                                          gameBoard[row][column - 4] == gameBoard[row][column - 6])) {
+                return true;
+            }
+        }
+        else if(column == 13) {
+            if(gameBoard[row][column - 2] != ' ' && (gameBoard[row][column - 2] == gameBoard[row][column - 4] &&
+                                                     gameBoard[row][column - 4] == gameBoard[row][column - 6])) {
+                return true;
+            }
+        }
+
+        //Check for Vertical Winning Move
+        if(row == 0 || row == 1 || row == 2) {
+            if(gameBoard[row + 1][column] != ' ' && (gameBoard[row + 1][column] == gameBoard[row + 2][column] &&
+                                                     gameBoard[row + 2][column] == gameBoard[row + 3][column])) {
+                return true;
+            }
+        }
+
+        //Check for Left-Down To Right Up Diagonal Winning Move
+        if(column == 1 && (row == 3 || row == 4 || row == 5)) {
+            if(gameBoard[row - 1][column + 2] != ' ' &&
+              (gameBoard[row - 1][column + 2] == gameBoard[row - 2][column + 4] &&
+               gameBoard[row - 2][column + 4] == gameBoard[row - 3][column + 6])) {
+                return true;
+            }
+        }
+        else if((column == 3 && row == 2) || (column == 9 && row == 4)) {
+            if(gameBoard[row + 1][column - 2] != ' ' &&
+              (gameBoard[row + 1][column - 2] == gameBoard[row - 1][column + 2] &&
+               gameBoard[row - 1][column + 2] == gameBoard[row - 2][column + 4])) {
+                return true;
+            }
+        }
+        else if(column == 3 && (row == 3 || row == 4 )) {
+            if(gameBoard[row - 1][column + 2] != ' ' &&
+              (gameBoard[row - 1][column + 2] == gameBoard[row - 2][column + 4] &&
+               gameBoard[row - 2][column + 4] == gameBoard[row - 3][column + 6])) {
+                return true;
+            }
+            else if(gameBoard[row + 1][column - 2] != ' ' &&
+                   (gameBoard[row + 1][column - 2] == gameBoard[row - 1][column + 2] &&
+                    gameBoard[row - 1][column + 2] == gameBoard[row - 2][column + 4])) {
+                return true;
+            }
+        }
+        else if((column == 1 || column == 3 || column == 5 || column == 7) && row == 5) {
+            if(gameBoard[row - 1][column + 2] != ' ' &&
+              (gameBoard[row - 1][column + 2] == gameBoard[row - 2][column + 4] &&
+               gameBoard[row - 2][column + 4] == gameBoard[row - 3][column + 6])) {
+                return true;
+            }
+        }
+        else if((column == 5 && row == 1) || (column == 11 && row == 3)) {
+            if(gameBoard[row + 2][column - 4] != ' ' &&
+              (gameBoard[row + 2][column - 4] == gameBoard[row + 1][column - 2] &&
+               gameBoard[row + 1][column - 2] == gameBoard[row - 1][column + 2])) {
+                return true;
+            }
+        }
+        else if((column == 5 && row == 2) || (column == 9 && row == 3)) {
+            if(gameBoard[row + 2][column - 4] != ' ' &&
+              (gameBoard[row + 2][column - 4] == gameBoard[row + 1][column - 2] &&
+               gameBoard[row + 1][column - 2] == gameBoard[row - 1][column + 2])) {
+                return true;
+            }
+            else if(gameBoard[row + 1][column - 2] != ' ' &&
+                   (gameBoard[row + 1][column - 2] == gameBoard[row - 1][column + 2] &&
+                    gameBoard[row - 1][column + 2] == gameBoard[row - 2][column + 4])) {
+                return true;
+            }
+        }
+        else if((column == 5 || column == 7) && row == 3) {
+            if(gameBoard[row - 1][column + 2] != ' ' &&
+              (gameBoard[row - 1][column + 2] == gameBoard[row - 2][column + 4] &&
+               gameBoard[row - 2][column + 4] == gameBoard[row - 3][column + 6])) {
+                return true;
+            }
+            else if(gameBoard[row + 1][column - 2] != ' ' &&
+                   (gameBoard[row + 1][column - 2] == gameBoard[row - 1][column + 2] &&
+                    gameBoard[row - 1][column + 2] == gameBoard[row - 2][column + 4])) {
+                return true;
+            }
+            else if(gameBoard[row + 2][column - 4] != ' ' &&
+                   (gameBoard[row + 2][column - 4] == gameBoard[row + 1][column - 2] &&
+                    gameBoard[row + 1][column - 2] == gameBoard[row - 1][column + 2])) {
+                return true;
+            }
+        }
+        else if((column == 5 || column == 7) && row == 4) {
+            if(gameBoard[row - 1][column + 2] != ' ' &&
+              (gameBoard[row - 1][column + 2] == gameBoard[row - 2][column + 4] &&
+               gameBoard[row - 2][column + 4] == gameBoard[row - 3][column + 6])) {
+                return true;
+            }
+            else if(gameBoard[row + 1][column - 2] != ' ' &&
+                   (gameBoard[row + 1][column - 2] == gameBoard[row - 1][column + 2] &&
+                    gameBoard[row - 1][column + 2] == gameBoard[row - 2][column + 4])) {
+                return true;
+            }
+        }
+        else if((column == 7 || column == 9 || column == 11) && row == 0) {
+            if(gameBoard[row + 3][column - 6] != ' ' &&
+              (gameBoard[row + 3][column - 6] == gameBoard[row + 2][column - 4] &&
+               gameBoard[row + 2][column - 4] == gameBoard[row + 1][column - 2])) {
+                return true;
+            }
+        }
+        else if((column == 7 || column == 9) && row == 1) {
+            if(gameBoard[row + 2][column - 4] != ' ' &&
+              (gameBoard[row + 2][column - 4] == gameBoard[row + 1][column - 2] &&
+               gameBoard[row + 1][column - 2] == gameBoard[row - 1][column + 2])) {
+                return true;
+            }
+            else if(gameBoard[row + 3][column - 6] != ' ' &&
+                   (gameBoard[row + 3][column - 6] == gameBoard[row + 2][column - 4] &&
+                    gameBoard[row + 2][column - 4] == gameBoard[row + 1][column - 2])) {
+                return true;
+            }
+        }
+        else if((column == 7 || column == 9) && row == 2) {
+            if(gameBoard[row + 1][column - 2] != ' ' &&
+              (gameBoard[row + 1][column - 2] == gameBoard[row - 1][column + 2] &&
+               gameBoard[row - 1][column + 2] == gameBoard[row - 2][column + 4])) {
+                return true;
+            }
+            else if(gameBoard[row + 2][column - 4] != ' ' &&
+                   (gameBoard[row + 2][column - 4] == gameBoard[row + 1][column - 2] &&
+                    gameBoard[row + 1][column - 2] == gameBoard[row - 1][column + 2])) {
+                return true;
+            }
+            else if(gameBoard[row + 3][column - 6] != ' ' &&
+                   (gameBoard[row + 3][column - 6] == gameBoard[row + 2][column - 4] &&
+                    gameBoard[row + 2][column - 4] == gameBoard[row + 1][column - 2])) {
+                return true;
+            }
+        }
+        //Combo of Column 7 and Row 3 is checked above (line 309)
+        //Combo of Column 7 and Row 4 is checked above (Line 326)
+        //Combo of Column 7 and Row 5 is checked above (Line 283)
+        //Combo of Column 9 and Row 1 is checked above (Line 345)
+        //Combo of Column 9 abd Row 2 is checked above (Line 357)
+        //Combo of Column 9 and Row 3 is checked above (Line 297)
+        //Combo of Column 9 and Row 4 is checked above (Line 264)
+        //Combo of Column 11 and Row 0 is checked above (Line 338)
+        else if(column == 11 && (row == 1 || row == 2)) {
+            if(gameBoard[row + 2][column - 4] != ' ' &&
+              (gameBoard[row + 2][column - 4] == gameBoard[row + 1][column - 2] &&
+               gameBoard[row + 1][column - 2] == gameBoard[row - 1][column + 2])) {
+                return true;
+            }
+            else if(gameBoard[row + 3][column - 6] != ' ' &&
+                   (gameBoard[row + 3][column - 6] == gameBoard[row + 2][column - 4] &&
+                    gameBoard[row + 2][column - 4] == gameBoard[row + 1][column - 2])) {
+                return true;
+            }
+        }
+        //Combo of Column 11 and Row 3 is checked above (Line 277)
+        else if(column == 13 && (row == 0 || row == 1 || row == 2)) {
+            if(gameBoard[row + 3][column - 6] != ' ' &&
+              (gameBoard[row + 3][column - 6] == gameBoard[row + 2][column - 4] &&
+               gameBoard[row + 2][column - 4] == gameBoard[row + 1][column - 2])) {
+                return true;
+            }
+        }
+
+        //Check for Left Up To Right Down Winning Moves
+        if(column == 1 && (row == 0 || row == 1 || row == 2)) {
+            if(gameBoard[row + 1][column + 2] != ' ' &&
+              (gameBoard[row + 1][column + 2] == gameBoard[row + 2][column + 4] &&
+               gameBoard[row + 2][column + 4] == gameBoard[row + 3][column + 6])) {
+                return true;
+            }
+        }
+        else if ((column == 3 || column == 5 || column == 7) && row == 0) {
+            if(gameBoard[row + 1][column + 2] != ' ' &&
+              (gameBoard[row + 1][column + 2] == gameBoard[row + 2][column + 4] &&
+               gameBoard[row + 2][column + 4] == gameBoard[row + 3][column + 6])) {
+                return true;
+            }
+        }
+        else if((column == 3 | column == 5 || column == 7) && row == 1) {
+            if(gameBoard[row + 1][column + 2] != ' ' &&
+              (gameBoard[row + 1][column + 2] == gameBoard[row + 2][column + 4] &&
+               gameBoard[row + 2][column + 4] == gameBoard[row + 3][column + 6])) {
+                return true;
+            }
+            else if(gameBoard[row - 1][column - 2] != ' ' &&
+                   (gameBoard[row - 1][column - 2] == gameBoard[row + 1][column + 2] &&
+                    gameBoard[row + 1][column + 2] == gameBoard[row + 2][column + 4])) {
+                return true;
+            }
+        }
+        else if(column == 3 && row == 2) {
+            if(gameBoard[row + 1][column + 2] != ' ' &&
+              (gameBoard[row + 1][column + 2] == gameBoard[row + 2][column + 4] &&
+               gameBoard[row + 2][column + 4] == gameBoard[row + 3][column + 6])) {
+                return true;
+            }
+            else if(gameBoard[row - 1][column - 2] != ' ' &&
+                   (gameBoard[row - 1][column - 2] == gameBoard[row + 1][column + 2] &&
+                    gameBoard[row + 1][column + 2] == gameBoard[row + 2][column + 4])) {
+                return true;
+            }
+        }
+        else if((column == 3 && row == 3) || (column == 9 && row == 1)) {
+            if(gameBoard[row - 1][column - 2] != ' ' &&
+              (gameBoard[row - 1][column - 2] == gameBoard[row + 1][column + 2] &&
+               gameBoard[row + 1][column + 2] == gameBoard[row + 2][column + 4])) {
+                return true;
+            }
+        }
+        // Combo of Column 5 and Row 0 is checked above (Line 411)
+        // Combo of Column 5 and Row 1 is checked above (Line 418)
+        else if((column == 5 || column == 7) && row == 2) {
+            if(gameBoard[row + 1][column + 2] != ' ' &&
+              (gameBoard[row + 1][column + 2] == gameBoard[row + 2][column + 4] &&
+               gameBoard[row + 2][column + 4] == gameBoard[row + 3][column + 6])) {
+                return true;
+            }
+            else if(gameBoard[row - 1][column - 2] != ' ' &&
+                   (gameBoard[row - 1][column - 2] == gameBoard[row + 1][column + 2] &&
+                    gameBoard[row + 1][column + 2] == gameBoard[row + 2][column + 4])) {
+                return true;
+            }
+            else if(gameBoard[row - 2][column - 4] != ' ' &&
+                   (gameBoard[row - 2][column - 4] == gameBoard[row - 1][column - 2] &&
+                    gameBoard[row - 1][column - 2] == gameBoard[row + 1][column + 2])) {
+                return true;
+            }
+        }
+        else if((column == 5 && row == 3) || (column == 9 && row == 2)) {
+            if(gameBoard[row - 1][column - 2] != ' ' &&
+              (gameBoard[row - 1][column - 2] == gameBoard[row + 1][column + 2] &&
+               gameBoard[row + 1][column + 2] == gameBoard[row + 2][column + 4])) {
+                return true;
+            }
+            else if(gameBoard[row - 2][column - 4] != ' ' &&
+                   (gameBoard[row - 2][column - 4] == gameBoard[row - 1][column - 2] &&
+                    gameBoard[row - 1][column - 2] == gameBoard[row + 1][column + 2])) {
+                return true;
+            }
+        }
+        else if((column == 5 && row == 4) || (column == 11 && row == 2)) {
+            if(gameBoard[row - 2][column - 4] != ' ' &&
+              (gameBoard[row - 2][column - 4] == gameBoard[row - 1][column - 2] &&
+               gameBoard[row - 1][column - 2] == gameBoard[row + 1][column + 2])) {
+                return true;
+            }
+        }
+        // Combo of Column 7 and Row 0 is checked above (Line 411)
+        // Combo of Column 7 and Row 1 is checked above (Line 418)
+        // Combo of Column 7 and Row 2 is checked above (Line 451)
+        else if((column == 7 || column == 9) && row == 3) {
+            if(gameBoard[row - 1][column - 2] != ' ' &&
+              (gameBoard[row - 1][column - 2] == gameBoard[row + 1][column + 2] &&
+               gameBoard[row + 1][column + 2] == gameBoard[row + 2][column + 4])) {
+                return true;
+            }
+            else if(gameBoard[row - 2][column - 4] != ' ' &&
+                   (gameBoard[row - 2][column - 4] == gameBoard[row - 1][column - 2] &&
+                    gameBoard[row - 1][column - 2] == gameBoard[row + 1][column + 2])) {
+                return true;
+            }
+            else if(gameBoard[row - 3][column - 6] != ' ' &&
+                   (gameBoard[row - 3][column - 6] == gameBoard[row - 2][column - 4] &&
+                    gameBoard[row - 2][column - 4] == gameBoard[row - 1][column - 2])) {
+                return true;
+            }
+        }
+        else if((column == 7 || column == 9 || column == 11) && row == 4) {
+            if(gameBoard[row - 2][column - 4] != ' ' &&
+              (gameBoard[row - 2][column - 4] == gameBoard[row - 1][column - 2] &&
+               gameBoard[row - 1][column - 2] == gameBoard[row + 1][column + 2])) {
+                return true;
+            }
+            else if(gameBoard[row - 3][column - 6] != ' ' &&
+                   (gameBoard[row - 3][column - 6] == gameBoard[row - 2][column - 4] &&
+                    gameBoard[row - 2][column - 4] == gameBoard[row - 1][column - 2])) {
+                return true;
+            }
+        }
+        else if((column == 7 || column == 9 || column == 11 || column == 13) && row == 5) {
+            if(gameBoard[row - 3][column - 6] != ' ' &&
+              (gameBoard[row - 3][column - 6] == gameBoard[row - 2][column - 4] &&
+               gameBoard[row - 2][column - 4] == gameBoard[row - 1][column - 2])) {
+                return true;
+            }
+        }
+        // Combo of Column 9 and Row 1 is checked above (Line 442)
+        // Combo of Column 9 and Row 2 is checked above (Line 468)
+        // Combo of Column 9 and Row 3 is checked above (Line 490)
+        // Combo of Column 9 and Row 4 is checked above (Line 507)
+        // Combo of Column 9 and Row 5 is checked above (Line 519)
+        // Combo of Column 11 and Row 2 is checked above (Line 480)
+        else if(column == 11 && row == 3) {
+            if(gameBoard[row - 2][column - 4] != ' ' &&
+              (gameBoard[row - 2][column - 4] == gameBoard[row - 1][column - 2] &&
+               gameBoard[row - 1][column - 2] == gameBoard[row + 1][column + 2])) {
+                return true;
+            }
+            else if(gameBoard[row - 3][column - 6] != ' ' &&
+                   (gameBoard[row - 3][column - 6] == gameBoard[row - 2][column - 4] &&
+                    gameBoard[row - 2][column - 4] == gameBoard[row - 1][column - 2])) {
+                return true;
+            }
+        }
+        // Combo of Column 11 and Row 4 is checked above (Line 507)
+        // Combo of Column 11 and Row 5 is checked above (Line 519)
+        else if(column == 13 && (row == 3 || row == 4)) {
+            if(gameBoard[row - 3][column - 6] != ' ' &&
+              (gameBoard[row - 3][column - 6] == gameBoard[row - 2][column - 4] &&
+               gameBoard[row - 2][column - 4] == gameBoard[row - 1][column - 2])) {
+                return true;
+            }
+        }
+        // Combo of Column 13 and Row 5 is checked above (Line 519)
+        //Everything failed so we return false
+        return false;
+    }
 }

@@ -17,6 +17,11 @@ public class Connect4Game {
         printBoard();
     }
 
+    public char getOccupancyAt(int row, int col)
+    {
+    	return gameBoard[row][col];
+    }
+   
     public int getTurn() {
         return turn;
     }

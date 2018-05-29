@@ -3,7 +3,7 @@ import java.util.Stack;
 import java.util.ArrayList;
 public class AI
 {
-	ArrayList<Stack<int>> calculations = new ArrayList<Stack<int>>(); // <-- Where AI Huerstic is stored
+	ArrayList<Stack<Integer>> calculations = new ArrayList<Stack<Integer>>(); // <-- Where AI Huerstic is stored
 	
 	public int activateBrain()
 	{
@@ -341,4 +341,3 @@ public class AI
 	
 	
 }// End of AI
-

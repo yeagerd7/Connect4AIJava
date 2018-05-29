@@ -1,10 +1,15 @@
 package v1;
 import java.util.Stack;
+import v1.Connect4Game;
 import java.util.ArrayList;
+
 public class AI
 {
 	ArrayList<Stack<Integer>> calculations = new ArrayList<Stack<Integer>>(); // <-- Where AI Huerstic is stored
 	
+	/*
+	 * returns the column location with the highest calculation 
+	 */
 	public int activateBrain()
 	{
 		int placeChipHere = 0;
@@ -16,6 +21,21 @@ public class AI
 			}
 		}
 		return placeChipHere;
+	}
+	
+	public void addPoints(int points, int column)
+	{
+		int totalPoints = calculations.get(column).peek() + points;
+		calculations.get(column).push(totalPoints);
+	}
+	
+	// If AI moves are blocked then it pops everything and recalculates
+	public void blockedMove(int column)
+	{
+		for(int i = 0; i<7; i++)
+		{
+			calculations.get(i).pop();
+		}
 	}
 	
 	/*

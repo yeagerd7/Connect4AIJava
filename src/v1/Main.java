@@ -67,15 +67,29 @@ public class Main
                 }
                 else
                 {
+                	boolean winnableMoveExists = false;
                 	// updates AI calculations by performing offensive calculations
                 	for(int i = 0; i<7; i++)
                 	{
                 		int points = ai.aiCalculations(2*i + 1 , game, 'Y');
                 		ai.addPoints(points, i);
+                		
+                		if(game.isWinnableMove(game.getNextPositionInCol(2*i + 1) , 2*i + 1))
+                		{
+                			if(winnableMoveExists == false)
+                			{
+                				winnableMoveExists = true;
+                				column = i;
+                			}
+                		}
                 	}
                 	
-                	column = ai.activateBrain();
-                	column = 2 * column + 1;
+                	if(!winnableMoveExists)
+                	{
+                		column = ai.activateBrain();
+                		column = 2 * column + 1;
+                	}
+                	
                 	game.AIPlay(column);
                 	
                 	game.printBoard();

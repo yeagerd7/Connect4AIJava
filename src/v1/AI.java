@@ -20,7 +20,6 @@ public class AI
 				placeChipHere = i;
 			}
 		}
-		placeChipHere = (placeChipHere * 2) + 1;
 		return placeChipHere;
 	}
 	

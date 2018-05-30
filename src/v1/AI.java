@@ -191,7 +191,6 @@ public class AI
 		 * |_|_|_|R|?|?|?|
 		 * |_|_|_|_|_|_|_|
 		 * |_|_|_|_|_|_|_|
-		 * |_|_|_|_|_|_|_|
 		 */
 		if(column + 2 <= 13 && column + 4 <= 13 && column + 6 <= 13) 
 		{
@@ -573,9 +572,9 @@ public class AI
 				{
 					for(int i =0 ; i < locationsBlocked.size();i++)
 					{
-						if(locationsBlocked.get(i) == column-2)
+						if(locationsBlocked.get(i) == column - 4)
 						{
-							locationsBlocked.add(column-2);
+							locationsBlocked.add(column - 4);
 						}
 					}
 				}

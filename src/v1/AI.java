@@ -270,7 +270,7 @@ public class AI
 		 * |_|_|_|?|_|_|_|
 		 * |_|_|_|_|_|_|_|
 		 */
-		if(row - 2 >= 0 && row - 1 >= 5 && row + 1 <= 5) 
+		if(row - 2 >= 0 && row - 1 >= 0 && row + 1 <= 5) 
 		{
 			if((gb.isPlayableMove(row - 2, column) || gb.getOccupancyAt(row - 2, column) == 'Y') && 
 			   (gb.isPlayableMove(row - 1, column) || gb.getOccupancyAt(row - 1, column) == 'Y') && 

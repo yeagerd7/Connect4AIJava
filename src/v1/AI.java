@@ -45,41 +45,42 @@ public class AI
 		 * |?|?|?|R|_|_|_|
 		 * |_|_|_|_|_|_|_|
 		 * |_|_|_|_|_|_|_|
-		 * |_|_|_|_|_|_|_|
 		 */
-		if(column-3>=0 && column-2 >= 0 && column-1 >= 0) 
+		if(column - 6 >= 1 && column - 4 >= 1 && column - 2 >= 1) 
 		{
-			if( (gb.isPlayableMove(row,column-3) || gb.getOccupancyAt(row, column-3) == 'Y') && (gb.isPlayableMove(row,column-2) || gb.getOccupancyAt(row, column-2) == 'Y') && (gb.isPlayableMove(row,column-1) || gb.getOccupancyAt(row, column-1) == 'Y'))
+			if((gb.isPlayableMove(row, column - 6) || gb.getOccupancyAt(row, column - 6) == 'Y') &&
+			   (gb.isPlayableMove(row, column - 4) || gb.getOccupancyAt(row, column - 4) == 'Y') && 
+			   (gb.isPlayableMove(row, column - 2) || gb.getOccupancyAt(row, column - 2) == 'Y'))
 			{
-				if(gb.isPlayableMove(row,column-3))
+				if(gb.isPlayableMove(row, column - 6))
 				{
-					for(int i =0 ; i < locationsBlocked.size();i++)
+					for(int i = 0; i < locationsBlocked.size(); i++)
 					{
-						if(locationsBlocked.get(i) == column-3)
+						if(locationsBlocked.get(i) == column - 6)
 						{
-							locationsBlocked.add(column-3);
+							locationsBlocked.add(column - 6);
 						}
 					}
 				}
 				
-				if(gb.isPlayableMove(row,column-2))
+				if(gb.isPlayableMove(row, column - 4))
 				{
-					for(int i =0 ; i < locationsBlocked.size();i++)
+					for(int i = 0; i < locationsBlocked.size(); i++)
 					{
-						if(locationsBlocked.get(i) == column-2)
+						if(locationsBlocked.get(i) == column - 4)
 						{
-							locationsBlocked.add(column-2);
+							locationsBlocked.add(column - 4);
 						}
 					}
 				}
 				
-				if(gb.isPlayableMove(row,column-1))
+				if(gb.isPlayableMove(row, column - 2))
 				{
-					for(int i =0 ; i < locationsBlocked.size();i++)
+					for(int i = 0 ; i < locationsBlocked.size(); i++)
 					{
-						if(locationsBlocked.get(i) == column-1)
+						if(locationsBlocked.get(i) == column - 2)
 						{
-							locationsBlocked.add(column-1);
+							locationsBlocked.add(column - 2);
 						}
 					}
 				}
@@ -92,41 +93,42 @@ public class AI
 		 * |_|?|?|R|?|_|_|
 		 * |_|_|_|_|_|_|_|
 		 * |_|_|_|_|_|_|_|
-		 * |_|_|_|_|_|_|_|
 		 */
-		if( column-2 >= 0 && column-1 >= 0 && column+1 <=6) 
+		if( column - 4 >= 1 && column - 2 >= 1 && column + 2 <= 13) 
 		{
-			if((gb.isPlayableMove(row,column-2) || gb.getOccupancyAt(row, column-2) == 'Y') && (gb.isPlayableMove(row,column-1) || gb.getOccupancyAt(row, column-1) == 'Y') && (gb.isPlayableMove(row,column+1) || gb.getOccupancyAt(row, column+1) == 'Y'))
+			if((gb.isPlayableMove(row, column - 4) || gb.getOccupancyAt(row, column - 4) == 'Y') && 
+			   (gb.isPlayableMove(row, column - 2) || gb.getOccupancyAt(row, column - 2) == 'Y') && 
+			   (gb.isPlayableMove(row, column + 2) || gb.getOccupancyAt(row, column + 2) == 'Y'))
 			{
-				if(gb.isPlayableMove(row,column-2))
+				if(gb.isPlayableMove(row, column - 4))
 				{
-					for(int i =0 ; i < locationsBlocked.size();i++)
+					for(int i = 0; i < locationsBlocked.size(); i++)
 					{
-						if(locationsBlocked.get(i) == column-2)
+						if(locationsBlocked.get(i) == column - 4)
 						{
-							locationsBlocked.add(column-2);
+							locationsBlocked.add(column - 4);
 						}
 					}
 				}
 				
-				if(gb.isPlayableMove(row,column-1))
+				if(gb.isPlayableMove(row, column - 2))
 				{
-					for(int i =0 ; i < locationsBlocked.size();i++)
+					for(int i = 0; i < locationsBlocked.size(); i++)
 					{
-						if(locationsBlocked.get(i) == column-1)
+						if(locationsBlocked.get(i) == column - 2)
 						{
-							locationsBlocked.add(column-1);
+							locationsBlocked.add(column - 2);
 						}
 					}
 				}
 				
-				if(gb.isPlayableMove(row,column+1))
+				if(gb.isPlayableMove(row, column + 2))
 				{
-					for(int i =0 ; i < locationsBlocked.size();i++)
+					for(int i = 0; i < locationsBlocked.size(); i++)
 					{
-						if(locationsBlocked.get(i) == column+1)
+						if(locationsBlocked.get(i) == column + 2)
 						{
-							locationsBlocked.add(column+1);
+							locationsBlocked.add(column + 2);
 						}
 					}
 				}
@@ -140,41 +142,42 @@ public class AI
 		 * |_|_|?|R|?|?|_|
 		 * |_|_|_|_|_|_|_|
 		 * |_|_|_|_|_|_|_|
-		 * |_|_|_|_|_|_|_|
 		 */
-		if(column-1 >= 0 && column+1 <=6 && column+2 <=6) 
+		if(column - 2 >= 1 && column + 2 <= 13 && column + 4 <= 13) 
 		{
-			if((gb.isPlayableMove(row,column-1) || gb.getOccupancyAt(row, column-1) == 'Y') && (gb.isPlayableMove(row,column+1) || gb.getOccupancyAt(row, column+1) == 'Y')  && (gb.isPlayableMove(row,column+2) || gb.getOccupancyAt(row, column+2) == 'Y'))
+			if((gb.isPlayableMove(row, column - 2) || gb.getOccupancyAt(row, column - 2) == 'Y') && 
+			   (gb.isPlayableMove(row, column + 2) || gb.getOccupancyAt(row, column + 2) == 'Y') && 
+			   (gb.isPlayableMove(row, column + 4) || gb.getOccupancyAt(row, column + 4) == 'Y'))
 			{
-				if(gb.isPlayableMove(row,column-1))
+				if(gb.isPlayableMove(row, column - 2))
 				{
-					for(int i =0 ; i < locationsBlocked.size();i++)
+					for(int i = 0; i < locationsBlocked.size(); i++)
 					{
-						if(locationsBlocked.get(i) == column-1)
+						if(locationsBlocked.get(i) == column - 2)
 						{
-							locationsBlocked.add(column-1);
+							locationsBlocked.add(column - 2);
 						}
 					}
 				}
 				
-				if(gb.isPlayableMove(row,column+1))
+				if(gb.isPlayableMove(row, column + 2))
 				{
-					for(int i =0 ; i < locationsBlocked.size();i++)
+					for(int i = 0; i < locationsBlocked.size(); i++)
 					{
-						if(locationsBlocked.get(i) == column+1)
+						if(locationsBlocked.get(i) == column + 2)
 						{
-							locationsBlocked.add(column+1);
+							locationsBlocked.add(column + 2);
 						}
 					}
 				}
 				
-				if(gb.isPlayableMove(row,column+2))
+				if(gb.isPlayableMove(row, column + 4))
 				{
-					for(int i =0 ; i < locationsBlocked.size();i++)
+					for(int i = 0; i < locationsBlocked.size(); i++)
 					{
-						if(locationsBlocked.get(i) == column+2)
+						if(locationsBlocked.get(i) == column + 4)
 						{
-							locationsBlocked.add(column+2);
+							locationsBlocked.add(column + 4);
 						}
 					}
 				}
@@ -190,39 +193,41 @@ public class AI
 		 * |_|_|_|_|_|_|_|
 		 * |_|_|_|_|_|_|_|
 		 */
-		if(column+1 <=6 && column+2 <=6 && column+3 <=6) 
+		if(column + 2 <= 13 && column + 4 <= 13 && column + 6 <= 13) 
 		{
-			if((gb.isPlayableMove(row,column+1) || gb.getOccupancyAt(row, column+1) == 'Y') && (gb.isPlayableMove(row,column+2) || gb.getOccupancyAt(row, column+2) == 'Y') && (gb.isPlayableMove(row,column+3) || gb.getOccupancyAt(row, column+3) == 'Y'))
+			if((gb.isPlayableMove(row, column + 2) || gb.getOccupancyAt(row, column + 2) == 'Y') && 
+			   (gb.isPlayableMove(row, column + 4) || gb.getOccupancyAt(row, column + 4) == 'Y') && 
+			   (gb.isPlayableMove(row, column + 6) || gb.getOccupancyAt(row, column + 6) == 'Y'))
 			{
-				if(gb.isPlayableMove(row,column+1))
+				if(gb.isPlayableMove(row, column + 2))
 				{
-					for(int i =0 ; i < locationsBlocked.size();i++)
+					for(int i = 0; i < locationsBlocked.size(); i++)
 					{
-						if(locationsBlocked.get(i) == column+1)
+						if(locationsBlocked.get(i) == column + 2)
 						{
-							locationsBlocked.add(column+1);
+							locationsBlocked.add(column + 2);
 						}
 					}
 				}
 				
-				if(gb.isPlayableMove(row,column+2))
+				if(gb.isPlayableMove(row,column + 4))
 				{
-					for(int i =0 ; i < locationsBlocked.size();i++)
+					for(int i = 0; i < locationsBlocked.size(); i++)
 					{
-						if(locationsBlocked.get(i) == column+2)
+						if(locationsBlocked.get(i) == column + 4)
 						{
-							locationsBlocked.add(column+2);
+							locationsBlocked.add(column + 4);
 						}
 					}
 				}
 				
-				if(gb.isPlayableMove(row,column-2))
+				if(gb.isPlayableMove(row,column + 6))
 				{
-					for(int i =0 ; i < locationsBlocked.size();i++)
+					for(int i = 0; i < locationsBlocked.size(); i++)
 					{
-						if(locationsBlocked.get(i) == column+3)
+						if(locationsBlocked.get(i) == column + 6)
 						{
-							locationsBlocked.add(column+3);
+							locationsBlocked.add(column + 6);
 						}
 					}
 				}
@@ -237,15 +242,16 @@ public class AI
 		 * |_|_|_|R|_|_|_|
 		 * |_|_|_|_|_|_|_|
 		 * |_|_|_|_|_|_|_|
-		 * |_|_|_|_|_|_|_|
 		 */
-		if(row+3<=5 && row+2 <= 5 && row+1 <= 5) 
+		if(row - 3 >= 0 && row - 2 >= 0 && row- 1 >= 0) 
 		{
-			if( (gb.isPlayableMove(row+3,column) || gb.getOccupancyAt(row+3, column) == 'Y') && (gb.isPlayableMove(row+2,column) || gb.getOccupancyAt(row+2, column) == 'Y') && (gb.isPlayableMove(row+1,column) || gb.getOccupancyAt(row+1, column) == 'Y'))
+			if((gb.isPlayableMove(row - 3, column) || gb.getOccupancyAt(row - 3, column) == 'Y') && 
+			   (gb.isPlayableMove(row - 2, column) || gb.getOccupancyAt(row - 2, column) == 'Y') && 
+			   (gb.isPlayableMove(row - 1, column) || gb.getOccupancyAt(row - 1, column) == 'Y'))
 			{
-				if(gb.isPlayableMove(row+3,column))
+				if(gb.isPlayableMove(row - 3, column))
 				{
-					for(int i =0 ; i < locationsBlocked.size();i++)
+					for(int i = 0; i < locationsBlocked.size(); i++)
 					{
 						if(locationsBlocked.get(i) == column)
 						{
@@ -263,15 +269,16 @@ public class AI
 		 * |_|_|_|R|_|_|_|
 		 * |_|_|_|?|_|_|_|
 		 * |_|_|_|_|_|_|_|
-		 * |_|_|_|_|_|_|_|
 		 */
-		if(row+2 <= 5 && row+1 <= 5 && row-1 >= 0) 
+		if(row - 2 >= 0 && row - 1 >= 5 && row + 1 <= 5) 
 		{
-			if((gb.isPlayableMove(row+2,column) || gb.getOccupancyAt(row+2, column) == 'Y') && (gb.isPlayableMove(row+1,column) || gb.getOccupancyAt(row+1, column) == 'Y') && (gb.isPlayableMove(row-1,column) || gb.getOccupancyAt(row-1, column) == 'Y'))
+			if((gb.isPlayableMove(row - 2, column) || gb.getOccupancyAt(row - 2, column) == 'Y') && 
+			   (gb.isPlayableMove(row - 1, column) || gb.getOccupancyAt(row - 1, column) == 'Y') && 
+			   (gb.isPlayableMove(row + 1, column) || gb.getOccupancyAt(row + 1, column) == 'Y'))
 			{
-				if(gb.isPlayableMove(row+2,column))
+				if(gb.isPlayableMove(row - 2, column))
 				{
-					for(int i =0 ; i < locationsBlocked.size();i++)
+					for(int i = 0; i < locationsBlocked.size(); i++)
 					{
 						if(locationsBlocked.get(i) == column)
 						{
@@ -289,15 +296,16 @@ public class AI
 		 * |_|_|_|R|_|_|_|
 		 * |_|_|_|?|_|_|_|
 		 * |_|_|_|?|_|_|_|
-		 * |_|_|_|_|_|_|_|
 		 */
-		if(row+1 <= 5 && row-1 >= 0 && row-2 >= 0) 
+		if(row - 1 >= 0 && row + 1 <= 5 && row + 2 <= 5) 
 		{
-			if((gb.isPlayableMove(row+1,column) || gb.getOccupancyAt(row+1, column) == 'Y') && (gb.isPlayableMove(row-1,column) || gb.getOccupancyAt(row-1, column) == 'Y') && (gb.isPlayableMove(row-2,column) || gb.getOccupancyAt(row-2, column) == 'Y'))
+			if((gb.isPlayableMove(row - 1, column) || gb.getOccupancyAt(row - 1, column) == 'Y') &&
+			   (gb.isPlayableMove(row + 1, column) || gb.getOccupancyAt(row + 1, column) == 'Y') && 
+			   (gb.isPlayableMove(row + 2, column) || gb.getOccupancyAt(row + 2, column) == 'Y'))
 			{
-				if(gb.isPlayableMove(row+1,column))
+				if(gb.isPlayableMove(row + 1,column))
 				{
-					for(int i =0 ; i < locationsBlocked.size();i++)
+					for(int i = 0; i < locationsBlocked.size(); i++)
 					{
 						if(locationsBlocked.get(i) == column)
 						{
@@ -310,19 +318,20 @@ public class AI
 		/* 
 		 * |_|_|_|_|_|_|_|
 		 * |_|_|_|_|_|_|_|
-		 * |_|_|_|_|_|_|_|
 		 * |_|_|_|R|_|_|_|
 		 * |_|_|_|?|_|_|_|
 		 * |_|_|_|?|_|_|_|
 		 * |_|_|_|?|_|_|_|
 		 */
-		if(row-1 >= 0 && row-2 >= 0 && row-3 >= 0) 
+		if(row + 1 <= 5 && row + 2 <= 5 && row + 3 <= 5) 
 		{
-			if((gb.isPlayableMove(row-1,column) || gb.getOccupancyAt(row-1, column) == 'Y') && (gb.isPlayableMove(row-2,column) || gb.getOccupancyAt(row-2, column) == 'Y') && (gb.isPlayableMove(row-3,column) || gb.getOccupancyAt(row-3, column) == 'Y'))
+			if((gb.isPlayableMove(row + 1, column) || gb.getOccupancyAt(row + 1, column) == 'Y') && 
+			   (gb.isPlayableMove(row + 2, column) || gb.getOccupancyAt(row + 2, column) == 'Y') && 
+			   (gb.isPlayableMove(row + 3, column) || gb.getOccupancyAt(row + 3, column) == 'Y'))
 			{
-				if(gb.isPlayableMove(row-1,column))
+				if(gb.isPlayableMove(row + 1,column))
 				{
-					for(int i =0 ; i < locationsBlocked.size();i++)
+					for(int i = 0; i < locationsBlocked.size(); i++)
 					{
 						if(locationsBlocked.get(i) == column)
 						{

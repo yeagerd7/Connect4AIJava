@@ -140,17 +140,20 @@ public class AI
 		/*
 		 * |_|_|_|_|_|_|_|
 		 * |_|_|_|_|_|_|_|
-		 * |_|_|_|_|_|_|_|
 		 * |_|_|_|Y|_|_|_|
 		 * |_|_|_|?|_|_|_|
 		 * |_|_|_|?|_|_|_|
 		 * |_|_|_|?|_|_|_|
 		 */
-		if(row - 3 >= 0 && row-2 >= 0 && row-1 >= 0 && row >= 0) 
+		if(row + 3 <= 5 && row + 2 <= 5 && row + 1 <= 5 && row <= 5) 
 		{
-			if(gb.isPlayableMove(row-3,col) && gb.isPlayableMove(row-2,col) && gb.isPlayableMove(row-1,col) && gb.isPlayableMove(row,col) )
+			if(gb.isPlayableMove(row + 3,col) && gb.isPlayableMove(row + 2,col) && 
+			   gb.isPlayableMove(row + 1,col) && gb.isPlayableMove(row,col) )
 			{
-				if(gb.getOccupancyAt(row-3, col) != chipColour && gb.getOccupancyAt(row-2, col) != chipColour && gb.getOccupancyAt(row-1, col) != chipColour && gb.getOccupancyAt(row, col) != chipColour)
+				if(gb.getOccupancyAt(row + 3, col) != chipColour && 
+				   gb.getOccupancyAt(row + 2, col) != chipColour && 
+				   gb.getOccupancyAt(row + 1, col) != chipColour && 
+				   gb.getOccupancyAt(row, col) != chipColour)
 				{
 					hueristic++;
 				}
@@ -163,13 +166,16 @@ public class AI
 		 * |_|_|_|Y|_|_|_|
 		 * |_|_|_|?|_|_|_|
 		 * |_|_|_|?|_|_|_|
-		 * |_|_|_|_|_|_|_|
 		 */
-		if(row-2 >= 0 && row-1 >= 0 && row >= 0 && row + 1 <= 5) 
+		if(row + 2 <= 5 && row + 1 <= 5 && row <= 5 && row - 1 >= 0) 
 		{
-			if(gb.isPlayableMove(row-2,col) && gb.isPlayableMove(row-1,col) && gb.isPlayableMove(row,col) && gb.isPlayableMove(row + 1,col) )
+			if(gb.isPlayableMove(row + 2,col) && gb.isPlayableMove(row + 1,col) && 
+			   gb.isPlayableMove(row,col) && gb.isPlayableMove(row - 1,col) )
 			{
-				if(gb.getOccupancyAt(row-2, col) != chipColour && gb.getOccupancyAt(row-1, col) != chipColour && gb.getOccupancyAt(row, col) != chipColour && gb.getOccupancyAt(row + 1, col) != chipColour)
+				if(gb.getOccupancyAt(row + 2, col) != chipColour && 
+				   gb.getOccupancyAt(row + 1, col) != chipColour && 
+				   gb.getOccupancyAt(row, col) != chipColour && 
+				   gb.getOccupancyAt(row - 1, col) != chipColour)
 				{
 					hueristic++;
 				}
@@ -182,13 +188,16 @@ public class AI
 		 * |_|_|_|Y|_|_|_|
 		 * |_|_|_|?|_|_|_|
 		 * |_|_|_|_|_|_|_|
-		 * |_|_|_|_|_|_|_|
 		 */
-		if(row-1 >= 0 && row >= 0 && row + 1 <= 5 && row + 2 <= 5) 
+		if(row + 1 <= 5 && row <= 5 && row - 1 >= 0 && row - 2 >= 0) 
 		{
-			if(gb.isPlayableMove(row-1,col) && gb.isPlayableMove(row,col) && gb.isPlayableMove(row + 1,col) && gb.isPlayableMove(row + 2,col))
+			if(gb.isPlayableMove(row + 1,col) && gb.isPlayableMove(row,col) && 
+			   gb.isPlayableMove(row - 1,col) && gb.isPlayableMove(row - 2,col))
 			{
-				if(gb.getOccupancyAt(row-1, col) != chipColour && gb.getOccupancyAt(row, col) != chipColour && gb.getOccupancyAt(row + 1, col) != chipColour && gb.getOccupancyAt(row + 2, col) != chipColour)
+				if(gb.getOccupancyAt(row + 1, col) != chipColour && 
+				   gb.getOccupancyAt(row, col) != chipColour && 
+				   gb.getOccupancyAt(row - 1, col) != chipColour && 
+				   gb.getOccupancyAt(row - 2, col) != chipColour)
 				{
 					hueristic++;
 				}
@@ -201,13 +210,16 @@ public class AI
 		 * |_|_|_|Y|_|_|_|
 		 * |_|_|_|_|_|_|_|
 		 * |_|_|_|_|_|_|_|
-		 * |_|_|_|_|_|_|_|
 		 */
-		if(row >= 0 && row + 1 <= 5 && row + 2 <= 5 && row + 3 <= 5) 
+		if(row >= 0 && row - 1 >= 0 && row - 2 >= 0 && row - 3 >= 0) 
 		{
-			if(gb.isPlayableMove(row,col) && gb.isPlayableMove(row + 1,col) && gb.isPlayableMove(row + 2,col) && gb.isPlayableMove(row + 3,col))
+			if(gb.isPlayableMove(row,col) && gb.isPlayableMove(row - 1,col) && 
+			   gb.isPlayableMove(row - 2,col) && gb.isPlayableMove(row - 3,col))
 			{
-				if(gb.getOccupancyAt(row, col) != chipColour && gb.getOccupancyAt(row + 1, col) != chipColour && gb.getOccupancyAt(row + 2, col) != chipColour && gb.getOccupancyAt(row + 3, col) != chipColour)
+				if(gb.getOccupancyAt(row, col) != chipColour && 
+				   gb.getOccupancyAt(row - 1, col) != chipColour && 
+				   gb.getOccupancyAt(row - 2, col) != chipColour && 
+				   gb.getOccupancyAt(row - 3, col) != chipColour)
 				{
 					hueristic++;
 				}

@@ -57,11 +57,15 @@ public class AI
 		 * |_|_|_|_|_|_|_|
 		 * |_|_|_|_|_|_|_|
 		 */
-		if(col-3>=0 && col-2 >= 0 && col-1 >= 0 && col >= 0) 
+		if(col - 6 >= 1 && col - 4 >= 1 && col - 2 >= 1 && col >= 1) 
 		{
-			if(gb.isPlayableMove(row,col-3) && gb.isPlayableMove(row,col-2) && gb.isPlayableMove(row,col-1) && gb.isPlayableMove(row,col) )
+			if(gb.isPlayableMove(row, col - 6) && gb.isPlayableMove(row, col - 4) && 
+			   gb.isPlayableMove(row, col - 2) && gb.isPlayableMove(row,col) )
 			{
-				if(gb.getOccupancyAt(row, col-3) != chipColour && gb.getOccupancyAt(row, col-2) != chipColour && gb.getOccupancyAt(row, col-1) != chipColour && gb.getOccupancyAt(row, col) != chipColour)
+				if(gb.getOccupancyAt(row, col - 6) != chipColour && 
+				   gb.getOccupancyAt(row, col - 4) != chipColour && 
+				   gb.getOccupancyAt(row, col - 2) != chipColour && 
+				   gb.getOccupancyAt(row, col) != chipColour)
 				{
 					hueristic++;
 				}
@@ -76,11 +80,15 @@ public class AI
 		 * |_|_|_|_|_|_|_|
 		 * |_|_|_|_|_|_|_|
 		 */
-		if(col-2>=0 && col-1 >= 0 && col >= 0 && col + 1 <= 6) 
+		if(col - 4 >= 1 && col - 2 >= 1 && col >= 1 && col + 2 <= 13) 
 		{
-			if(gb.isPlayableMove(row,col-2) && gb.isPlayableMove(row,col-1) && gb.isPlayableMove(row,col) && gb.isPlayableMove(row,col+1))
+			if(gb.isPlayableMove(row, col - 4) && gb.isPlayableMove(row,col - 2) && 
+			   gb.isPlayableMove(row, col) && gb.isPlayableMove(row,col + 2))
 			{
-				if(gb.getOccupancyAt(row, col-2) != chipColour && gb.getOccupancyAt(row, col-1) != chipColour && gb.getOccupancyAt(row, col) != chipColour && gb.getOccupancyAt(row, col+1) != chipColour)
+				if(gb.getOccupancyAt(row, col - 4) != chipColour && 
+				   gb.getOccupancyAt(row, col - 2) != chipColour &&
+				   gb.getOccupancyAt(row, col) != chipColour && 
+				   gb.getOccupancyAt(row, col + 2) != chipColour)
 				{
 					hueristic++;
 				}
@@ -95,11 +103,15 @@ public class AI
 		 * |_|_|_|_|_|_|_|
 		 * |_|_|_|_|_|_|_|
 		 */
-		if(col-1 >= 0 && col >= 0 && col + 1 <= 6 && col + 2 <= 6) 
+		if(col - 2 >= 1 && col >= 1 && col + 2 <= 13 && col + 4 <= 13) 
 		{
-			if(gb.isPlayableMove(row,col-1) && gb.isPlayableMove(row,col) && gb.isPlayableMove(row,col+1) && gb.isPlayableMove(row,col+2))
+			if(gb.isPlayableMove(row,col - 2) && gb.isPlayableMove(row,col) && 
+			   gb.isPlayableMove(row,col + 2) && gb.isPlayableMove(row,col + 4))
 			{
-				if(gb.getOccupancyAt(row, col-1) != chipColour && gb.getOccupancyAt(row, col) != chipColour && gb.getOccupancyAt(row, col+1) != chipColour && gb.getOccupancyAt(row, col+2) != chipColour)
+				if(gb.getOccupancyAt(row, col - 2) != chipColour && 
+				   gb.getOccupancyAt(row, col) != chipColour && 
+				   gb.getOccupancyAt(row, col + 2) != chipColour && 
+				   gb.getOccupancyAt(row, col + 4) != chipColour)
 				{
 					hueristic++;
 				}
@@ -114,11 +126,15 @@ public class AI
 		 * |_|_|_|_|_|_|_|
 		 * |_|_|_|_|_|_|_|
 		 */ 
-		if(col >= 0 && col + 1 <= 6 && col + 2 <= 6 && col + 3 <= 6) 
+		if(col >= 1 && col + 2 <= 13 && col + 4 <= 13 && col + 6 <= 13) 
 		{
-			if(gb.isPlayableMove(row,col) && gb.isPlayableMove(row,col+1) && gb.isPlayableMove(row,col+2) && gb.isPlayableMove(row,col+3))
+			if(gb.isPlayableMove(row,col) && gb.isPlayableMove(row,col + 2) && 
+			   gb.isPlayableMove(row,col + 4) && gb.isPlayableMove(row,col + 6))
 			{
-				if(gb.getOccupancyAt(row, col) != chipColour && gb.getOccupancyAt(row, col+1) != chipColour && gb.getOccupancyAt(row, col+2) != chipColour  && gb.getOccupancyAt(row, col+3) != chipColour)
+				if(gb.getOccupancyAt(row, col) != chipColour && 
+				   gb.getOccupancyAt(row, col + 2) != chipColour && 
+				   gb.getOccupancyAt(row, col + 4) != chipColour  && 
+				   gb.getOccupancyAt(row, col + 6) != chipColour)
 				{
 					hueristic++;
 				}
@@ -134,7 +150,7 @@ public class AI
 		 * |_|_|_|?|_|_|_|
 		 * |_|_|_|?|_|_|_|
 		 */
-		if(row-3>=0 && row-2 >= 0 && row-1 >= 0 && row >= 0) 
+		if(row - 3 >= 0 && row-2 >= 0 && row-1 >= 0 && row >= 0) 
 		{
 			if(gb.isPlayableMove(row-3,col) && gb.isPlayableMove(row-2,col) && gb.isPlayableMove(row-1,col) && gb.isPlayableMove(row,col) )
 			{

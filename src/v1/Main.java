@@ -32,6 +32,7 @@ public class Main
 	            
 	         // updates AI calculations by performing defensive calculations
 	            // If AI moves are blocked then it pops everything and recalculates
+				/*
 	            ai.blockedMove(column, game);
 	            
 	            // Calculates for opponents possible connect fours and the more a chip placement in a column can make a connect four, the more points it added
@@ -41,6 +42,7 @@ public class Main
             		System.out.println(points);
             		ai.addPoints(points, i);
             	}
+            	*/
             }
 	        
             //Its the AI's turn
@@ -74,13 +76,14 @@ public class Main
                 	{
                 		int points = ai.aiCalculations(2*i + 1 , game, 'Y');
                 		ai.addPoints(points, i);
-                		
+						System.out.println(ai.getCalculations().get(i).peek());
+
                 		if(game.isWinnableMove(game.getNextPositionInCol(2*i + 1) , 2*i + 1))
                 		{
                 			if(winnableMoveExists == false)
                 			{
                 				winnableMoveExists = true;
-                				column = i;
+                				column = 2*i+1;
                 			}
                 		}
                 	}

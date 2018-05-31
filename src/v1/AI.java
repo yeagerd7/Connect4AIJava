@@ -15,6 +15,10 @@ public class AI
         }
     }
 
+    public ArrayList<Stack<Integer>> getCalculations() {
+		return calculations;
+	}
+
 	/*
 	 * returns the column location with the highest calculation 
 	 */
@@ -778,7 +782,7 @@ public class AI
             }
 			calculations.get(popThisColumn).pop(); // pop columns blocked by chip placement
 			newPoints = aiCalculations(popThisColumn*2+1, gb, 'Y');// recalculates offensive points
-			addPoints(newPoints, i);
+			addPoints(newPoints, popThisColumn);
 		}
 		
 	}// end of blockedMove

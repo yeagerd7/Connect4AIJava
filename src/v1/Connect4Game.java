@@ -188,9 +188,9 @@ public class Connect4Game {
 
     public boolean isPlayableMove(int row, int column) {
         boolean playable = false;
-        if (gameBoard[row + 1][column] != ' ' && (row >= 0 && row < 6)) {
-            playable = true;
-        }
+            if (gameBoard[row][column] == ' ' && gameBoard[row + 1][column] != ' ') {
+                playable = true;
+            }
         return playable;
     }
 

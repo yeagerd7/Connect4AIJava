@@ -17,6 +17,11 @@ public class Connect4Game {
         printBoard();
     }
 
+    public char getOccupancyAt(int row, int col)
+    {
+    	return gameBoard[row][col];
+    }
+    
     public int getTurn() {
         return turn;
     }
@@ -44,9 +49,34 @@ public class Connect4Game {
             i--;
         }
     }
+    
+    /*
+     * Returns the next position available
+     * in respect to the column number given
+     * if the last row is up to question
+     * it will return the last row
+     */
+    public int getNextPositionInCol(int columnNumber)
+    {
+    	int nextPosition = 0;
+    	while(gameBoard[nextPosition][columnNumber] != ' ' && nextPosition < 5)
+    	{
+    		nextPosition++;
+    	}
+    	return nextPosition;
+    }
 
-    public void AIPlay() {
-
+    public void AIPlay(int column) 
+    {
+    	boolean spotFilled = false;
+        int i = 6;
+        while(spotFilled == false && i > -1) {
+            if(gameBoard[i][column] == ' ') {
+                gameBoard[i][column] = ai;
+                spotFilled = true;
+            }
+            i--;
+        }
     }
 
     private char[][] generateInitialBoard(char[][] board){

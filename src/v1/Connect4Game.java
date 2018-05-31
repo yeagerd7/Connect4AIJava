@@ -58,10 +58,10 @@ public class Connect4Game {
      */
     public int getNextPositionInCol(int columnNumber)
     {
-    	int nextPosition = 0;
-    	while(gameBoard[nextPosition][columnNumber] != ' ' && nextPosition < 5)
+    	int nextPosition = 5;
+    	while(gameBoard[nextPosition][columnNumber] != ' ' && nextPosition > 0)
     	{
-    		nextPosition++;
+    		nextPosition--;
     	}
     	return nextPosition;
     }

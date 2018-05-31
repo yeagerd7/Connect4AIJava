@@ -58,10 +58,10 @@ public class Connect4Game {
      */
     public int getNextPositionInCol(int columnNumber)
     {
-    	int nextPosition = 0;
-    	while(gameBoard[nextPosition][columnNumber] != ' ' && nextPosition < 5)
+    	int nextPosition = 5;
+    	while(gameBoard[nextPosition][columnNumber] != ' ' && nextPosition > 0)
     	{
-    		nextPosition++;
+    		nextPosition--;
     	}
     	return nextPosition;
     }
@@ -188,9 +188,9 @@ public class Connect4Game {
 
     public boolean isPlayableMove(int row, int column) {
         boolean playable = false;
-        if (gameBoard[row][column] == ' ' && gameBoard[row + 1][column] != ' ') {
-            playable = true;
-        }
+            if (gameBoard[row][column] == ' ' && gameBoard[row + 1][column] != ' ') {
+                playable = true;
+            }
         return playable;
     }
 

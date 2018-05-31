@@ -5,8 +5,16 @@ import java.util.ArrayList;
 
 public class AI
 {
-	ArrayList<Stack<Integer>> calculations = new ArrayList<Stack<Integer>>(); // <-- Where AI Huerstic is stored
-	
+	ArrayList<Stack<Integer>> calculations;
+
+	public AI() {
+	    calculations = new ArrayList<>();
+	    for(int i = 0 ; i < 7; i++) {
+	        calculations.add(i, new Stack<>());
+	        calculations.get(i).push(0);
+        }
+    }
+
 	/*
 	 * returns the column location with the highest calculation 
 	 */
@@ -23,19 +31,22 @@ public class AI
 		return placeChipHere;
 	}
 	
-	public void addPoints(int points, int column)
-	{
-		int totalPoints = calculations.get(column).peek() + points;
-		calculations.get(column).push(totalPoints);
+	public void addPoints(int points, int column) {
+	    if(calculations.get(column).isEmpty()) {
+            calculations.get(column).push(points);
+        }
+        else {
+            int totalPoints = calculations.get(column).peek() + points;
+            calculations.get(column).push(totalPoints);
+        }
 	}
 	
 	// If AI moves are blocked then it pops everything and recalculates
-	public void blockedMove(int column, Connect4Game gb)
-	{
+	public void blockedMove(int column, Connect4Game gb) {
 		ArrayList<Integer> locationsBlocked = new ArrayList<Integer>();
 		locationsBlocked.add(column);
 		
-		int row = gb.getNextPositionInCol(column) - 1;
+		int row = gb.getNextPositionInCol(column) + 1;
 		
 		// This will test all possible horizontal connect four 
 		/* 
@@ -744,6 +755,27 @@ public class AI
 		for(int i = 0; i<locationsBlocked.size(); i++)
 		{
 			popThisColumn = locationsBlocked.get(i);
+			if (popThisColumn == 13) {
+			    popThisColumn  = 6;
+            }
+            else if (popThisColumn == 11) {
+                popThisColumn  = 5;
+            }
+            else if (popThisColumn == 9) {
+                popThisColumn  = 4;
+            }
+            else if (popThisColumn == 7) {
+                popThisColumn  = 3;
+            }
+            else if (popThisColumn == 5) {
+                popThisColumn  = 2;
+            }
+            else if (popThisColumn == 3) {
+                popThisColumn  = 1;
+            }
+            else if (popThisColumn == 11) {
+                popThisColumn  = 0;
+            }
 			calculations.get(popThisColumn).pop(); // pop columns blocked by chip placement
 			newPoints = aiCalculations(popThisColumn*2+1, gb, 'Y');// recalculates offensive points
 			addPoints(newPoints, i);
@@ -753,7 +785,7 @@ public class AI
 	
 	/*
 	 * Given a game board and a specific coordinate
-	 * this method will update a specific columns hueristic
+	 * this method will update a specific columns heuristic
 	 */
 	public int aiCalculations(int col, Connect4Game gb, char chipColour)
 	{

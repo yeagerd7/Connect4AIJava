@@ -32,12 +32,13 @@ public class Main
 	            
 	         // updates AI calculations by performing defensive calculations
 	            // If AI moves are blocked then it pops everything and recalculates
-	            ai.blockedMove(column);
+	            ai.blockedMove(column, game);
 	            
 	            // Calculates for opponents possible connect fours and the more a chip placement in a column can make a connect four, the more points it added
 	            for(int i = 0; i<7; i++)
             	{
             		int points = ai.aiCalculations(2 * i + 1, game, 'R');
+            		System.out.println(points);
             		ai.addPoints(points, i);
             	}
             }

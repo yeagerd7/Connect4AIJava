@@ -3,19 +3,19 @@ import java.util.Stack;
 import v1.Connect4Game;
 import java.util.ArrayList;
 
-public class AI
-{
+public class AI {
+	
 	ArrayList<Stack<Integer>> calculations;
 
-	public AI() {
-	    calculations = new ArrayList<>();
-	    for(int i = 0 ; i < 7; i++) {
-	        calculations.add(i, new Stack<>());
-	        calculations.get(i).push(0);
-        }
-    }
+   	public AI() {
+		calculations = new ArrayList<>();
+		for(int i = 0 ; i < 7; i++) {
+	        	calculations.add(i, new Stack<>());
+	        	calculations.get(i).push(0);
+        	}
+    	}
 
-    public ArrayList<Stack<Integer>> getCalculations() {
+    	public ArrayList<Stack<Integer>> getCalculations() {
 		return calculations;
 	}
 

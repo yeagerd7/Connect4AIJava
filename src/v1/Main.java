@@ -65,7 +65,9 @@ public class Main
                 if(count == 1) {
                 	Random rand = new Random();
                 	column = rand.nextInt(6);
-                	System.out.println("Random Column: " + column);
+                	//TEST PRINT METHOD
+                	System.out.println("Its the AI's first turn so it's going to randomly drop a chip at " +
+							"column: " + column + "\n");
                 	//6 is the maximum and the 0 is our minimum
                 	column = 2 * column + 1;
                 	game.AIPlay(column);
@@ -77,6 +79,8 @@ public class Main
                 		int currentCalculation = ai.getCalculations().get(i).peek();
                 		calculationsString += currentCalculation + " ";
                 	}
+					//TEST PRINT METHOD
+					System.out.println();
                 	game.printBoard();
                 }
                 else {
@@ -98,12 +102,15 @@ public class Main
 						calculationsString += currentCalculation + " ";
 
                 		if(game.isWinnableMove(game.getNextPositionInCol(2 * i + 1) , 2 * i + 1)) {
+                			System.out.println("Winnable Move!!");
                 			if(winnableMoveExists == false) {
                 				winnableMoveExists = true;
                 				column = 2 * i + 1;
                 			}
                 		}
                 	}
+					//TEST PRINT METHOD
+					System.out.println();
                 	if(!winnableMoveExists) {
                 		column = ai.activateBrain();
                 		column = 2 * column + 1;

@@ -1,4 +1,5 @@
 package v1;
+import java.util.Random;
 import java.util.Stack;
 import v1.Connect4Game;
 import java.util.ArrayList;
@@ -24,14 +25,31 @@ public class AI
 	 */
 	public int activateBrain()
 	{
+		ArrayList<Integer> tiedIndexes = new ArrayList<>();
 		int placeChipHere = 0;
-		for(int i=0; i<7; i++)
-		{
-			if(calculations.get(i).peek() > placeChipHere)
-			{
+		int maxCalculation = 0;
+		for(int i = 0; i < 7; i++) {
+			int calculation = calculations.get(i).peek();
+			if(calculation >= maxCalculation) {
+				maxCalculation = calculation;
 				placeChipHere = i;
 			}
 		}
+		//Checking if any columns have the same heuristic calculation
+		for(int i = 0; i < 7; i++) {
+			int calculation = calculations.get(i).peek();
+			if(calculation == maxCalculation) {
+				tiedIndexes.add(i);
+			}
+		}
+		//If any ties do exist for the column heuristic values then one of the ties is chosen at random
+		if(!tiedIndexes.isEmpty()) {
+			Random rand = new Random();
+			int index = rand.nextInt(tiedIndexes.size() - 1);
+			placeChipHere = tiedIndexes.get(index);
+		}
+		//TEST PRINT METHOD
+		System.out.println("\nHighest Calculation: " + maxCalculation + "\n");
 		return placeChipHere;
 	}
 	

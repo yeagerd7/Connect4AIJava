@@ -49,6 +49,19 @@ public class Connect4Game {
             i--;
         }
     }
+
+    public boolean columnFilled(int column) {
+        boolean columnFilled = true;
+        int i = 5;
+        while(columnFilled && i >= 0) {
+            if(gameBoard[i][column] == ' ') {
+                columnFilled = false;
+                return columnFilled;
+            }
+            i--;
+        }
+        return columnFilled;
+    }
     
     /*
      * Returns the next position available

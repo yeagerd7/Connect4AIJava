@@ -5,13 +5,13 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Main 
+public class Main
 {
     public static void main(String[] args) throws IOException
     {
 	    Connect4Game game = new Connect4Game();
 	    AI ai = new AI();
-		int count = 0;
+	    int count = 0;
 	    while(game.getWinner() == 0) {
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
             //Its the human's turn
@@ -41,7 +41,7 @@ public class Main
 	            game.humanPlay(column);
 	            System.out.println("\nYou dropped a red chip!\n");
 	            game.printBoard();
-	            
+
 	         	// updates AI calculations by performing defensive calculations
 	            // If AI moves are blocked then it pops everything and recalculates
 				/*
@@ -56,7 +56,7 @@ public class Main
             	*/
 
             }
-	        
+
             //Its the AI's turn
             else {
 	        	String calculationsString = "";
@@ -66,10 +66,10 @@ public class Main
                 	Random rand = new Random();
                 	column = rand.nextInt(6);
                 	System.out.println("Random Column: " + column);
-                	//6 is the maximum and the 0 is our minimum 
+                	//6 is the maximum and the 0 is our minimum
                 	column = 2 * column + 1;
                 	game.AIPlay(column);
-                	
+
                 	// updates AI calculations by preforming offensive calculations
                 	for(int i = 0; i<7; i++) {
                 		int points = ai.aiCalculations(2 * i + 1, game, 'Y');
@@ -108,7 +108,7 @@ public class Main
                 		column = ai.activateBrain();
                 		column = 2 * column + 1;
                 	}
-                	
+
                 	game.AIPlay(column);
                 	game.printBoard();
                 }

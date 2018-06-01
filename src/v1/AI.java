@@ -759,27 +759,12 @@ public class AI
 		for(int i = 0; i<locationsBlocked.size(); i++)
 		{
 			popThisColumn = locationsBlocked.get(i);
-			if (popThisColumn == 13) {
-			    popThisColumn  = 6;
-            }
-            else if (popThisColumn == 11) {
-                popThisColumn  = 5;
-            }
-            else if (popThisColumn == 9) {
-                popThisColumn  = 4;
-            }
-            else if (popThisColumn == 7) {
-                popThisColumn  = 3;
-            }
-            else if (popThisColumn == 5) {
-                popThisColumn  = 2;
-            }
-            else if (popThisColumn == 3) {
-                popThisColumn  = 1;
-            }
-            else if (popThisColumn == 11) {
-                popThisColumn  = 0;
-            }
+			if(popThisColumn == 1) {
+				popThisColumn = 0;
+			}
+			else {
+				popThisColumn = (popThisColumn - 1) / 2;
+			}
 			calculations.get(popThisColumn).pop(); // pop columns blocked by chip placement
 			newPoints = aiCalculations(popThisColumn*2+1, gb, 'Y');// recalculates offensive points
 			addPoints(newPoints, popThisColumn);
@@ -795,6 +780,8 @@ public class AI
 	{
 		int hueristic = 0;
 		int row = gb.getNextPositionInCol(col);
+
+		System.out.println("Row: " + row + " Column: " + col);
 		
 		// This will test all possible horizontal connect four 
 		/* 
@@ -815,6 +802,8 @@ public class AI
 				   gb.getOccupancyAt(row, col - 2) != chipColour && 
 				   gb.getOccupancyAt(row, col) != chipColour)
 				{
+					//TEST PRINT STATEMENT
+					System.out.println("1st Horizontal heuristic added");
 					hueristic++;
 				}
 			}
@@ -837,6 +826,8 @@ public class AI
 				   gb.getOccupancyAt(row, col) != chipColour && 
 				   gb.getOccupancyAt(row, col + 2) != chipColour)
 				{
+					//TEST PRINT STATEMENT
+					System.out.println("2nd Horizontal heuristic added");
 					hueristic++;
 				}
 			}
@@ -859,6 +850,8 @@ public class AI
 				   gb.getOccupancyAt(row, col + 2) != chipColour && 
 				   gb.getOccupancyAt(row, col + 4) != chipColour)
 				{
+					//TEST PRINT STATEMENT
+					System.out.println("3rd Horizontal heuristic added");
 					hueristic++;
 				}
 			}
@@ -881,6 +874,8 @@ public class AI
 				   gb.getOccupancyAt(row, col + 4) != chipColour  && 
 				   gb.getOccupancyAt(row, col + 6) != chipColour)
 				{
+					//TEST PRINT STATEMENT
+					System.out.println("4th Horizontal heuristic added");
 					hueristic++;
 				}
 			}
@@ -904,6 +899,8 @@ public class AI
 				   gb.getOccupancyAt(row + 1, col) != chipColour && 
 				   gb.getOccupancyAt(row, col) != chipColour)
 				{
+					//TEST PRINT STATEMENT
+					System.out.println("1st Vertical heuristic added");
 					hueristic++;
 				}
 			}
@@ -926,6 +923,8 @@ public class AI
 				   gb.getOccupancyAt(row, col) != chipColour && 
 				   gb.getOccupancyAt(row - 1, col) != chipColour)
 				{
+					//TEST PRINT STATEMENT
+					System.out.println("2nd Vertical heuristic added");
 					hueristic++;
 				}
 			}
@@ -948,6 +947,8 @@ public class AI
 				   gb.getOccupancyAt(row - 1, col) != chipColour && 
 				   gb.getOccupancyAt(row - 2, col) != chipColour)
 				{
+					//TEST PRINT STATEMENT
+					System.out.println("3rd Vertical heuristic added");
 					hueristic++;
 				}
 			}
@@ -970,6 +971,8 @@ public class AI
 				   gb.getOccupancyAt(row - 2, col) != chipColour && 
 				   gb.getOccupancyAt(row - 3, col) != chipColour)
 				{
+					//TEST PRINT STATEMENT
+					System.out.println("4th Vertical heuristic added");
 					hueristic++;
 				}
 			}
@@ -994,6 +997,8 @@ public class AI
 				   gb.getOccupancyAt(row - 1, col - 2) != chipColour && 
 				   gb.getOccupancyAt(row, col) != chipColour)
 				{
+					//TEST PRINT STATEMENT
+					System.out.println("1st Left Down Diagonal heuristic added");
 					hueristic++;
 				}
 			}
@@ -1017,6 +1022,8 @@ public class AI
 				   gb.getOccupancyAt(row, col) != chipColour && 
 				   gb.getOccupancyAt(row + 1, col + 2) != chipColour)
 				{
+					//TEST PRINT STATEMENT
+					System.out.println("2nd Left Down Diagonal heuristic added");
 					hueristic++;
 				}
 			}
@@ -1040,6 +1047,8 @@ public class AI
 				   gb.getOccupancyAt(row + 1, col + 2) != chipColour && 
 				   gb.getOccupancyAt(row + 2, col + 4) != chipColour)
 				{
+					//TEST PRINT STATEMENT
+					System.out.println("3rd Left Down Diagonal heuristic added");
 					hueristic++;
 				}
 			}
@@ -1063,6 +1072,8 @@ public class AI
 				   gb.getOccupancyAt(row + 2, col + 4) != chipColour && 
 				   gb.getOccupancyAt(row + 3, col + 6) != chipColour)
 				{
+					//TEST PRINT STATEMENT
+					System.out.println("4th Left Down Diagonal heuristic added");
 					hueristic++;
 				}
 			}
@@ -1087,6 +1098,8 @@ public class AI
 				   gb.getOccupancyAt(row + 1, col - 2) != chipColour &&
 				   gb.getOccupancyAt(row, col) != chipColour)
 				{
+					//TEST PRINT STATEMENT
+					System.out.println("1st Left Up Diagonal heuristic added");
 					hueristic++;
 				}
 			}
@@ -1110,6 +1123,8 @@ public class AI
 				   gb.getOccupancyAt(row, col) != chipColour && 
 				   gb.getOccupancyAt(row - 1, col + 2) != chipColour)
 				{
+					//TEST PRINT STATEMENT
+					System.out.println("2nd Left Up Diagonal heuristic added");
 					hueristic++;
 				}
 			}
@@ -1133,6 +1148,8 @@ public class AI
 				   gb.getOccupancyAt(row - 1, col + 2) != chipColour && 
 				   gb.getOccupancyAt(row - 2, col + 4) != chipColour)
 				{
+					//TEST PRINT STATEMENT
+					System.out.println("3rd Left Up Diagonal heuristic added");
 					hueristic++;
 				}
 			}
@@ -1156,6 +1173,8 @@ public class AI
 				   gb.getOccupancyAt(row - 2, col + 4) != chipColour &&
 				   gb.getOccupancyAt(row - 3, col + 6) != chipColour)
 				{
+					//TEST PRINT STATEMENT
+					System.out.println("4th Left Up Diagonal heuristic added");
 					hueristic++;
 				}
 			}

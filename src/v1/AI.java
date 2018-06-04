@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class AI {
 
-	ArrayList<Stack<Integer>> calculations;
+    ArrayList<Stack<Integer>> calculations;
 
 	public AI() {
 	    calculations = new ArrayList<>();

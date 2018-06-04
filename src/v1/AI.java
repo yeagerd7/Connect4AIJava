@@ -13,7 +13,7 @@ public class AI {
 	    for(int i = 0 ; i < 7; i++) {
 	        calculations.add(i, new Stack<>());
 	        calculations.get(i).push(0);
-        }
+	    }
     }
 
     public ArrayList<Stack<Integer>> getCalculations() {

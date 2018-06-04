@@ -43,7 +43,7 @@ public class AI
 			}
 		}
 		//If any ties do exist for the column heuristic values then one of the ties is chosen at random
-		if(!tiedIndexes.isEmpty()) {
+		if(tiedIndexes.size() > 1) {
 			Random rand = new Random();
 			int index = rand.nextInt(tiedIndexes.size() - 1);
 			placeChipHere = tiedIndexes.get(index);
@@ -813,11 +813,11 @@ public class AI
 		if(col - 6 >= 1 && col - 4 >= 1 && col - 2 >= 1 && col >= 1) 
 		{
 			if(gb.isPlayableMove(row, col - 6) && gb.isPlayableMove(row, col - 4) && 
-			   gb.isPlayableMove(row, col - 2) && gb.isPlayableMove(row,col) )
+			   gb.isPlayableMove(row, col - 2) && gb.isPlayableMove(row, col))
 			{
-				if(gb.getOccupancyAt(row, col - 6) != chipColour && 
-				   gb.getOccupancyAt(row, col - 4) != chipColour && 
-				   gb.getOccupancyAt(row, col - 2) != chipColour && 
+				if(gb.getOccupancyAt(row, col - 6) != chipColour &&
+				   gb.getOccupancyAt(row, col - 4) != chipColour &&
+				   gb.getOccupancyAt(row, col - 2) != chipColour &&
 				   gb.getOccupancyAt(row, col) != chipColour)
 				{
 					//TEST PRINT STATEMENT
@@ -836,12 +836,12 @@ public class AI
 		 */
 		if(col - 4 >= 1 && col - 2 >= 1 && col >= 1 && col + 2 <= 13) 
 		{
-			if(gb.isPlayableMove(row, col - 4) && gb.isPlayableMove(row,col - 2) && 
+			if(gb.isPlayableMove(row, col - 4) && gb.isPlayableMove(row,col - 2) &&
 			   gb.isPlayableMove(row, col) && gb.isPlayableMove(row,col + 2))
 			{
-				if(gb.getOccupancyAt(row, col - 4) != chipColour && 
+				if(gb.getOccupancyAt(row, col - 4) != chipColour &&
 				   gb.getOccupancyAt(row, col - 2) != chipColour &&
-				   gb.getOccupancyAt(row, col) != chipColour && 
+				   gb.getOccupancyAt(row, col) != chipColour &&
 				   gb.getOccupancyAt(row, col + 2) != chipColour)
 				{
 					//TEST PRINT STATEMENT
@@ -860,12 +860,12 @@ public class AI
 		 */
 		if(col - 2 >= 1 && col >= 1 && col + 2 <= 13 && col + 4 <= 13) 
 		{
-			if(gb.isPlayableMove(row,col - 2) && gb.isPlayableMove(row,col) && 
+			if(gb.isPlayableMove(row,col - 2) && gb.isPlayableMove(row,col) &&
 			   gb.isPlayableMove(row,col + 2) && gb.isPlayableMove(row,col + 4))
 			{
-				if(gb.getOccupancyAt(row, col - 2) != chipColour && 
-				   gb.getOccupancyAt(row, col) != chipColour && 
-				   gb.getOccupancyAt(row, col + 2) != chipColour && 
+				if(gb.getOccupancyAt(row, col - 2) != chipColour &&
+				   gb.getOccupancyAt(row, col) != chipColour &&
+				   gb.getOccupancyAt(row, col + 2) != chipColour &&
 				   gb.getOccupancyAt(row, col + 4) != chipColour)
 				{
 					//TEST PRINT STATEMENT
@@ -884,12 +884,12 @@ public class AI
 		 */ 
 		if(col >= 1 && col + 2 <= 13 && col + 4 <= 13 && col + 6 <= 13) 
 		{
-			if(gb.isPlayableMove(row,col) && gb.isPlayableMove(row,col + 2) && 
+			if(gb.isPlayableMove(row,col) && gb.isPlayableMove(row,col + 2) &&
 			   gb.isPlayableMove(row,col + 4) && gb.isPlayableMove(row,col + 6))
 			{
-				if(gb.getOccupancyAt(row, col) != chipColour && 
-				   gb.getOccupancyAt(row, col + 2) != chipColour && 
-				   gb.getOccupancyAt(row, col + 4) != chipColour  && 
+				if(gb.getOccupancyAt(row, col) != chipColour &&
+				   gb.getOccupancyAt(row, col + 2) != chipColour &&
+				   gb.getOccupancyAt(row, col + 4) != chipColour  &&
 				   gb.getOccupancyAt(row, col + 6) != chipColour)
 				{
 					//TEST PRINT STATEMENT

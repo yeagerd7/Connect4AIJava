@@ -9,10 +9,10 @@ public class AI {
     ArrayList<Stack<Integer>> calculations;
 
     public AI() {
-	    calculations = new ArrayList<>();
-	    for(int i = 0 ; i < 7; i++) {
-	        calculations.add(i, new Stack<>());
-	        calculations.get(i).push(0);
+        calculations = new ArrayList<>();
+        for(int i = 0 ; i < 7; i++) {
+            calculations.add(i, new Stack<>());
+            calculations.get(i).push(0);
 	    }
     }
 

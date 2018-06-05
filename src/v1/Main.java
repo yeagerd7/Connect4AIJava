@@ -103,9 +103,14 @@ public class Main
 						calculationsString += currentCalculation + " ";
 
                 		if(game.isWinnableMove(game.getNextPositionInCol(2 * i + 1) , 2 * i + 1)) {
-                			System.out.println("Winnable Move!!");
-                			if(winnableMoveExists == false) {
+                			// Test Print Statement: System.out.println("Winnable Move!!");
+                			if(winnableMoveExists == false) 
+                			{
                 				winnableMoveExists = true;
+                				column = 2 * i + 1;
+                			}
+                			if( winnableMoveExists == true && game.getOccupancyAt(game.getNextPositionInCol(2*i+1), 2*i+1) == 'Y' ) 
+                			{
                 				column = 2 * i + 1;
                 			}
                 		}

@@ -48,7 +48,7 @@ public class AI {
 			placeChipHere = tiedIndexes.get(index);
 		}
 		//TEST PRINT METHOD
-		System.out.println("\nHighest Calculation: " + maxCalculation + "\n");
+		//System.out.println("\nHighest Calculation: " + maxCalculation + "\n");
 		return placeChipHere;
 	}
 	
@@ -64,7 +64,7 @@ public class AI {
 	
 	// If AI moves are blocked then it pops everything and recalculates
 	public void blockedMove(int column, Connect4Game gb) {
-		ArrayList<Integer> locationsBlocked = new ArrayList<Integer>();
+		ArrayList<Integer> locationsBlocked = new ArrayList<>();
 		locationsBlocked.add(column);
 		
 		int row = gb.getNextPositionInCol(column) + 1;
@@ -83,21 +83,24 @@ public class AI {
 			   (gb.isPlayableMove(row, column - 4) || gb.getOccupancyAt(row, column - 4) == 'Y') && 
 			   (gb.isPlayableMove(row, column - 2) || gb.getOccupancyAt(row, column - 2) == 'Y')) {
 				if(gb.isPlayableMove(row, column - 6)) {
-					for(int i = 0; i < locationsBlocked.size(); i++) {
+					int size = locationsBlocked.size();
+					for(int i = 0; i < size; i++) {
 						if(locationsBlocked.get(i) == column - 6) {
 							locationsBlocked.add(column - 6);
 						}
 					}
 				}
 				if(gb.isPlayableMove(row, column - 4)) {
-					for(int i = 0; i < locationsBlocked.size(); i++) {
+					int size = locationsBlocked.size();
+					for(int i = 0; i < size; i++) {
 						if(locationsBlocked.get(i) == column - 4) {
 							locationsBlocked.add(column - 4);
 						}
 					}
 				}
 				if(gb.isPlayableMove(row, column - 2)) {
-					for(int i = 0 ; i < locationsBlocked.size(); i++) {
+					int size = locationsBlocked.size();
+					for(int i = 0; i < size; i++) {
 						if(locationsBlocked.get(i) == column - 2) {
 							locationsBlocked.add(column - 2);
 						}
@@ -118,21 +121,24 @@ public class AI {
 			   (gb.isPlayableMove(row, column - 2) || gb.getOccupancyAt(row, column - 2) == 'Y') && 
 			   (gb.isPlayableMove(row, column + 2) || gb.getOccupancyAt(row, column + 2) == 'Y')) {
 				if(gb.isPlayableMove(row, column - 4)) {
-					for(int i = 0; i < locationsBlocked.size(); i++) {
+					int size = locationsBlocked.size();
+					for(int i = 0; i < size; i++) {
 						if(locationsBlocked.get(i) == column - 4) {
 							locationsBlocked.add(column - 4);
 						}
 					}
 				}
 				if(gb.isPlayableMove(row, column - 2)) {
-					for(int i = 0; i < locationsBlocked.size(); i++) {
+					int size = locationsBlocked.size();
+					for(int i = 0; i < size; i++) {
 						if(locationsBlocked.get(i) == column - 2) {
 							locationsBlocked.add(column - 2);
 						}
 					}
 				}
 				if(gb.isPlayableMove(row, column + 2)) {
-					for(int i = 0; i < locationsBlocked.size(); i++) {
+					int size = locationsBlocked.size();
+					for(int i = 0; i < size; i++) {
 						if(locationsBlocked.get(i) == column + 2) {
 							locationsBlocked.add(column + 2);
 						}
@@ -154,21 +160,24 @@ public class AI {
 			   (gb.isPlayableMove(row, column + 2) || gb.getOccupancyAt(row, column + 2) == 'Y') && 
 			   (gb.isPlayableMove(row, column + 4) || gb.getOccupancyAt(row, column + 4) == 'Y')) {
 				if(gb.isPlayableMove(row, column - 2)) {
-					for(int i = 0; i < locationsBlocked.size(); i++) {
+					int size = locationsBlocked.size();
+					for(int i = 0; i < size; i++) {
 						if(locationsBlocked.get(i) == column - 2) {
 							locationsBlocked.add(column - 2);
 						}
 					}
 				}
 				if(gb.isPlayableMove(row, column + 2)) {
-					for(int i = 0; i < locationsBlocked.size(); i++) {
+					int size = locationsBlocked.size();
+					for(int i = 0; i < size; i++) {
 						if(locationsBlocked.get(i) == column + 2) {
 							locationsBlocked.add(column + 2);
 						}
 					}
 				}
 				if(gb.isPlayableMove(row, column + 4)) {
-					for(int i = 0; i < locationsBlocked.size(); i++) {
+					int size = locationsBlocked.size();
+					for(int i = 0; i < size; i++) {
 						if(locationsBlocked.get(i) == column + 4) {
 							locationsBlocked.add(column + 4);
 						}
@@ -190,21 +199,24 @@ public class AI {
 			   (gb.isPlayableMove(row, column + 4) || gb.getOccupancyAt(row, column + 4) == 'Y') && 
 			   (gb.isPlayableMove(row, column + 6) || gb.getOccupancyAt(row, column + 6) == 'Y')) {
 				if(gb.isPlayableMove(row, column + 2)) {
-					for(int i = 0; i < locationsBlocked.size(); i++) {
+					int size = locationsBlocked.size();
+					for(int i = 0; i < size; i++) {
 						if(locationsBlocked.get(i) == column + 2) {
 							locationsBlocked.add(column + 2);
 						}
 					}
 				}
 				if(gb.isPlayableMove(row,column + 4)) {
-					for(int i = 0; i < locationsBlocked.size(); i++) {
+					int size = locationsBlocked.size();
+					for(int i = 0; i < size; i++) {
 						if(locationsBlocked.get(i) == column + 4) {
 							locationsBlocked.add(column + 4);
 						}
 					}
 				}
 				if(gb.isPlayableMove(row,column + 6)) {
-					for(int i = 0; i < locationsBlocked.size(); i++) {
+					int size = locationsBlocked.size();
+					for(int i = 0; i < size; i++) {
 						if(locationsBlocked.get(i) == column + 6) {
 							locationsBlocked.add(column + 6);
 						}
@@ -227,7 +239,8 @@ public class AI {
 			   (gb.isPlayableMove(row - 2, column) || gb.getOccupancyAt(row - 2, column) == 'Y') && 
 			   (gb.isPlayableMove(row - 1, column) || gb.getOccupancyAt(row - 1, column) == 'Y')) {
 				if(gb.isPlayableMove(row - 3, column)) {
-					for(int i = 0; i < locationsBlocked.size(); i++) {
+					int size = locationsBlocked.size();
+					for(int i = 0; i < size; i++) {
 						if(locationsBlocked.get(i) == column) {
 							locationsBlocked.add(column);
 						}
@@ -249,7 +262,8 @@ public class AI {
 			   (gb.isPlayableMove(row - 1, column) || gb.getOccupancyAt(row - 1, column) == 'Y') && 
 			   (gb.isPlayableMove(row + 1, column) || gb.getOccupancyAt(row + 1, column) == 'Y')) {
 				if(gb.isPlayableMove(row - 2, column)) {
-					for(int i = 0; i < locationsBlocked.size(); i++) {
+					int size = locationsBlocked.size();
+					for(int i = 0; i < size; i++) {
 						if(locationsBlocked.get(i) == column) {
 							locationsBlocked.add(column);
 						}
@@ -271,7 +285,8 @@ public class AI {
 			   (gb.isPlayableMove(row + 1, column) || gb.getOccupancyAt(row + 1, column) == 'Y') && 
 			   (gb.isPlayableMove(row + 2, column) || gb.getOccupancyAt(row + 2, column) == 'Y')) {
 				if(gb.isPlayableMove(row + 1,column)) {
-					for(int i = 0; i < locationsBlocked.size(); i++) {
+					int size = locationsBlocked.size();
+					for(int i = 0; i < size; i++) {
 						if(locationsBlocked.get(i) == column) {
 							locationsBlocked.add(column);
 						}
@@ -292,7 +307,8 @@ public class AI {
 			   (gb.isPlayableMove(row + 2, column) || gb.getOccupancyAt(row + 2, column) == 'Y') && 
 			   (gb.isPlayableMove(row + 3, column) || gb.getOccupancyAt(row + 3, column) == 'Y')) {
 				if(gb.isPlayableMove(row + 1,column)) {
-					for(int i = 0; i < locationsBlocked.size(); i++) {
+					int size = locationsBlocked.size();
+					for(int i = 0; i < size; i++) {
 						if(locationsBlocked.get(i) == column) {
 							locationsBlocked.add(column);
 						}
@@ -304,7 +320,7 @@ public class AI {
 		/* 
 		* |_|_|_|_|_|_|_|
 		* |_|_|_|_|_|_|_|
-		* |_|_|_|Y|_|_|_|
+		* |_|_|_|R|_|_|_|
 		* |_|_|?|_|_|_|_|
 		* |_|?|_|_|_|_|_|
 		* |?|_|_|_|_|_|_|
@@ -319,21 +335,24 @@ public class AI {
 				 * it was placed there already.
 				 */
 				if(gb.isPlayableMove(row + 3, column - 6)) {
-					for(int i = 0; i < locationsBlocked.size(); i++) {
+					int size = locationsBlocked.size();
+					for(int i = 0; i < size; i++) {
 						if(locationsBlocked.get(i) == column - 6) {
 							locationsBlocked.add(column - 6);
 						}
 					}
 				}
 				if(gb.isPlayableMove(row + 2, column - 4)) {
-					for(int i = 0; i < locationsBlocked.size(); i++) {
+					int size = locationsBlocked.size();
+					for(int i = 0; i < size; i++) {
 						if(locationsBlocked.get(i) == column - 4) {
 							locationsBlocked.add(column - 4);
 						}
 					}
 				}
 				if(gb.isPlayableMove(row + 1, column - 2)) {
-					for(int i = 0; i < locationsBlocked.size(); i++) {
+					int size = locationsBlocked.size();
+					for(int i = 0; i < size; i++) {
 						if(locationsBlocked.get(i) == column - 2) {
 							locationsBlocked.add(column - 2);
 						}
@@ -345,7 +364,7 @@ public class AI {
 		/* 
 		* |_|_|_|_|_|_|_|
 		* |_|_|_|_|?|_|_|
-		* |_|_|_|Y|_|_|_|
+		* |_|_|_|R|_|_|_|
 		* |_|_|?|_|_|_|_|
 		* |_|?|_|_|_|_|_|
 		* |_|_|_|_|_|_|_|
@@ -355,21 +374,24 @@ public class AI {
 			   (gb.isPlayableMove(row + 1, column - 2) || gb.getOccupancyAt(row + 1, column - 2) == 'Y') && 
 			   (gb.isPlayableMove(row - 1, column + 2) || gb.getOccupancyAt(row - 1, column + 2) == 'Y')) {
 				if(gb.isPlayableMove(row + 2, column - 4)) {
-					for(int i = 0; i < locationsBlocked.size(); i++) {
+					int size = locationsBlocked.size();
+					for(int i = 0; i < size; i++) {
 						if(locationsBlocked.get(i) == column - 4) {
 							locationsBlocked.add(column - 4);
 						}
 					}
 				}
 				if(gb.isPlayableMove(row + 1, column - 2)) {
-					for(int i = 0; i < locationsBlocked.size(); i++) {
+					int size = locationsBlocked.size();
+					for(int i = 0; i < size; i++) {
 						if(locationsBlocked.get(i) == column - 2) {
 							locationsBlocked.add(column - 2);
 						}
 					}
 				}
 				if(gb.isPlayableMove(row - 1, column + 2)) {
-					for(int i = 0; i < locationsBlocked.size(); i++) {
+					int size = locationsBlocked.size();
+					for(int i = 0; i < size; i++) {
 						if(locationsBlocked.get(i) == column + 2) {
 							locationsBlocked.add(column + 2);
 						}
@@ -382,7 +404,7 @@ public class AI {
 		* |_|_|_|_|_|_|_|
 		* |_|_|_|_|_|?|_|
 		* |_|_|_|_|?|_|_|
-		* |_|_|_|Y|_|_|_|
+		* |_|_|_|R|_|_|_|
 		* |_|_|?|_|_|_|_|
 		* |_|_|_|_|_|_|_|
 		*/
@@ -391,21 +413,24 @@ public class AI {
 			   (gb.isPlayableMove(row - 1, column + 2) || gb.getOccupancyAt(row - 1, column + 2) == 'Y') && 
 			   (gb.isPlayableMove(row + 1, column - 2) || gb.getOccupancyAt(row + 1, column - 2) == 'Y')) {
 				if(gb.isPlayableMove(row - 2, column + 4)) {
-					for(int i = 0; i < locationsBlocked.size(); i++) {
+					int size = locationsBlocked.size();
+					for(int i = 0; i < size; i++) {
 						if(locationsBlocked.get(i) == column + 4) {
 							locationsBlocked.add(column + 4);
 						}
 					}
 				}
 				if(gb.isPlayableMove(row - 1, column + 2)) {
-					for(int i =0; i < locationsBlocked.size(); i++) {
+					int size = locationsBlocked.size();
+					for(int i = 0; i < size; i++) {
 						if(locationsBlocked.get(i) == column + 2) {
 							locationsBlocked.add(column + 2);
 						}
 					}
 				}
 				if(gb.isPlayableMove(row + 1, column - 2)) {
-					for(int i =0 ; i < locationsBlocked.size();i++) {
+					int size = locationsBlocked.size();
+					for(int i = 0; i < size; i++) {
 						if(locationsBlocked.get(i) == column - 2) {
 							locationsBlocked.add(column - 2);
 						}
@@ -418,7 +443,7 @@ public class AI {
 		* |_|_|_|_|_|_|?|
 		* |_|_|_|_|_|?|_|
 		* |_|_|_|_|?|_|_|
-		* |_|_|_|Y|_|_|_|
+		* |_|_|_|R|_|_|_|
 		* |_|_|_|_|_|_|_|
 		* |_|_|_|_|_|_|_|
 		*/
@@ -427,21 +452,24 @@ public class AI {
 			   (gb.isPlayableMove(row - 2, column + 4) || gb.getOccupancyAt(row - 2, column + 4) == 'Y') && 
 			   (gb.isPlayableMove(row - 1, column + 2) || gb.getOccupancyAt(row - 1, column + 2) == 'Y')) {
 				if(gb.isPlayableMove(row - 3, column + 6)) {
-					for(int i = 0; i < locationsBlocked.size(); i++) {
+					int size = locationsBlocked.size();
+					for(int i = 0; i < size; i++) {
 						if(locationsBlocked.get(i) == column + 6) {
 							locationsBlocked.add(column + 6);
 						}
 					}
 				}
 				if(gb.isPlayableMove(row - 2, column + 4)) {
-					for(int i = 0; i < locationsBlocked.size(); i++) {
+					int size = locationsBlocked.size();
+					for(int i = 0; i < size; i++) {
 						if(locationsBlocked.get(i) == column + 4) {
 							locationsBlocked.add(column + 4);
 						}
 					}
 				}
 				if(gb.isPlayableMove(row - 3, column + 6)) {
-					for(int i = 0; i < locationsBlocked.size(); i++) {
+					int size = locationsBlocked.size();
+					for(int i = 0; i < size; i++) {
 						if(locationsBlocked.get(i) == column + 6) {
 							locationsBlocked.add(column + 6);
 						}
@@ -454,7 +482,7 @@ public class AI {
 		* |?|_|_|_|_|_|_|
 		* |_|?|_|_|_|_|_|
 		* |_|_|?|_|_|_|_|
-		* |_|_|_|Y|_|_|_|
+		* |_|_|_|R|_|_|_|
 		* |_|_|_|_|_|_|_|
 		* |_|_|_|_|_|_|_|
 		*/
@@ -463,21 +491,24 @@ public class AI {
 			   (gb.isPlayableMove(row - 2, column - 4) || gb.getOccupancyAt(row - 2, column - 4) == 'Y') && 
 			   (gb.isPlayableMove(row - 1, column - 2) || gb.getOccupancyAt(row - 1, column - 2) == 'Y')) {
 				if(gb.isPlayableMove(row - 3, column - 6)) {
-					for(int i = 0; i < locationsBlocked.size(); i++) {
+					int size = locationsBlocked.size();
+					for(int i = 0; i < size; i++) {
 						if(locationsBlocked.get(i) == column - 6) {
 							locationsBlocked.add(column - 6);
 						}
 					}
 				}
 				if(gb.isPlayableMove(row - 2, column - 4)) {
-					for(int i =0 ; i < locationsBlocked.size();i++) {
+					int size = locationsBlocked.size();
+					for(int i = 0; i < size; i++) {
 						if(locationsBlocked.get(i) == column - 4) {
 							locationsBlocked.add(column - 4);
 						}
 					}
 				}
 				if(gb.isPlayableMove(row - 1, column - 2)) {
-					for(int i = 0; i < locationsBlocked.size(); i++) {
+					int size = locationsBlocked.size();
+					for(int i = 0; i < size; i++) {
 						if(locationsBlocked.get(i) == column - 2) {
 							locationsBlocked.add(column - 2);
 						}
@@ -490,7 +521,7 @@ public class AI {
 		* |_|_|_|_|_|_|_|
 		* |_|?|_|_|_|_|_|
 		* |_|_|?|_|_|_|_|
-		* |_|_|_|Y|_|_|_|
+		* |_|_|_|R|_|_|_|
 		* |_|_|_|_|?|_|_|
 		* |_|_|_|_|_|_|_|
 		*/
@@ -499,21 +530,24 @@ public class AI {
 			   (gb.isPlayableMove(row - 1, column - 2) || gb.getOccupancyAt(row - 1, column - 2) == 'Y') && 
 			   (gb.isPlayableMove(row + 1, column + 2) || gb.getOccupancyAt(row + 1, column + 2) == 'Y')) {
 				if(gb.isPlayableMove(row - 2, column - 4)) {
-					for(int i = 0; i < locationsBlocked.size(); i++) {
+					int size = locationsBlocked.size();
+					for(int i = 0; i < size; i++) {
 						if(locationsBlocked.get(i) == column - 4) {
 							locationsBlocked.add(column - 4);
 						}
 					}
 				}
 				if(gb.isPlayableMove(row - 1, column - 2)) {
-					for(int i = 0; i < locationsBlocked.size(); i++) {
+					int size = locationsBlocked.size();
+					for(int i = 0; i < size; i++) {
 						if(locationsBlocked.get(i) == column - 2) {
 							locationsBlocked.add(column - 2);
 						}
 					}
 				}
 				if(gb.isPlayableMove(row + 1, column + 2)) {
-					for(int i = 0; i < locationsBlocked.size(); i++) {
+					int size = locationsBlocked.size();
+					for(int i = 0; i < size; i++) {
 						if(locationsBlocked.get(i) == column + 2) {
 							locationsBlocked.add(column + 2);
 						}
@@ -525,7 +559,7 @@ public class AI {
 		/* 
 		* |_|_|_|_|_|_|_|
 		* |_|_|?|_|_|_|_|
-		* |_|_|_|Y|_|_|_|
+		* |_|_|_|R|_|_|_|
 		* |_|_|_|_|?|_|_|
 		* |_|_|_|_|_|?|_|
 		* |_|_|_|_|_|_|_|
@@ -535,21 +569,24 @@ public class AI {
 			   (gb.isPlayableMove(row + 1, column + 2) || gb.getOccupancyAt(row + 1, column + 2) == 'Y') && 
 			   (gb.isPlayableMove(row + 2, column + 4) || gb.getOccupancyAt(row + 2, column + 4) == 'Y')) {
 				if(gb.isPlayableMove(row - 1, column - 2)) {
-					for(int i = 0; i < locationsBlocked.size(); i++) {
+					int size = locationsBlocked.size();
+					for(int i = 0; i < size; i++) {
 						if(locationsBlocked.get(i) == column - 2) {
 							locationsBlocked.add(column - 2);
 						}
 					}
 				}
 				if(gb.isPlayableMove(row + 1, column + 2)) {
-					for(int i = 0; i < locationsBlocked.size(); i++) {
+					int size = locationsBlocked.size();
+					for(int i = 0; i < size; i++) {
 						if(locationsBlocked.get(i) == column + 2) {
 							locationsBlocked.add(column + 2);
 						}
 					}
 				}
 				if(gb.isPlayableMove(row + 2, column + 4)) {
-					for(int i = 0; i < locationsBlocked.size(); i++) {
+					int size = locationsBlocked.size();
+					for(int i = 0; i < size; i++) {
 						if(locationsBlocked.get(i) == column + 4) {
 							locationsBlocked.add(column + 4);
 						}
@@ -561,7 +598,7 @@ public class AI {
 		/* 
 		* |_|_|_|_|_|_|_|
 		* |_|_|_|_|_|_|_|
-		* |_|_|_|Y|_|_|_|
+		* |_|_|_|R|_|_|_|
 		* |_|_|_|_|?|_|_|
 		* |_|_|_|_|_|?|_|
 		* |_|_|_|_|_|_|?|
@@ -571,21 +608,24 @@ public class AI {
 			   (gb.isPlayableMove(row + 2, column + 4) || gb.getOccupancyAt(row + 2, column + 4) == 'Y') && 
 			   (gb.isPlayableMove(row + 3, column + 6) || gb.getOccupancyAt(row + 3, column + 6) == 'Y')) {
 				if(gb.isPlayableMove(row + 1, column + 2)) {
-					for(int i = 0; i < locationsBlocked.size(); i++) {
+					int size = locationsBlocked.size();
+					for(int i = 0; i < size; i++) {
 						if(locationsBlocked.get(i) == column + 2) {
 							locationsBlocked.add(column + 2);
 						}
 					}
 				}
 				if(gb.isPlayableMove(row + 2, column + 4)) {
-					for(int i = 0; i < locationsBlocked.size(); i++) {
+					int size = locationsBlocked.size();
+					for(int i = 0; i < size; i++) {
 						if(locationsBlocked.get(i) == column + 4) {
 							locationsBlocked.add(column + 4);
 						}
 					}
 				}
 				if(gb.isPlayableMove(row + 3, column + 6)) {
-					for(int i = 0; i < locationsBlocked.size(); i++) {
+					int size = locationsBlocked.size();
+					for(int i = 0; i < size; i++) {
 						if(locationsBlocked.get(i) == column + 6) {
 							locationsBlocked.add(column + 6);
 						}
@@ -620,7 +660,8 @@ public class AI {
 		int hueristic = 0;
 		int row = gb.getNextPositionInCol(col);
 
-		System.out.println("Row: " + row + " Column: " + col);
+		//TEST PRINT STATEMENT
+		//System.out.println("Row: " + row + " Column: " + col);
 		
 		// This will test all possible horizontal connect four 
 		/* 
@@ -639,7 +680,7 @@ public class AI {
 				   gb.getOccupancyAt(row, col - 2) != chipColour &&
 				   gb.getOccupancyAt(row, col) != chipColour) {
 					//TEST PRINT STATEMENT
-					System.out.println("1st Horizontal heuristic added");
+					//System.out.println("1st Horizontal heuristic added");
 					hueristic++;
 				}
 			}
@@ -660,7 +701,7 @@ public class AI {
 				   gb.getOccupancyAt(row, col) != chipColour &&
 				   gb.getOccupancyAt(row, col + 2) != chipColour) {
 					//TEST PRINT STATEMENT
-					System.out.println("2nd Horizontal heuristic added");
+					//System.out.println("2nd Horizontal heuristic added");
 					hueristic++;
 				}
 			}
@@ -681,7 +722,7 @@ public class AI {
 				   gb.getOccupancyAt(row, col + 2) != chipColour &&
 				   gb.getOccupancyAt(row, col + 4) != chipColour) {
 					//TEST PRINT STATEMENT
-					System.out.println("3rd Horizontal heuristic added");
+					//System.out.println("3rd Horizontal heuristic added");
 					hueristic++;
 				}
 			}
@@ -702,7 +743,7 @@ public class AI {
 				   gb.getOccupancyAt(row, col + 4) != chipColour  &&
 				   gb.getOccupancyAt(row, col + 6) != chipColour) {
 					//TEST PRINT STATEMENT
-					System.out.println("4th Horizontal heuristic added");
+					//System.out.println("4th Horizontal heuristic added");
 					hueristic++;
 				}
 			}
@@ -724,7 +765,7 @@ public class AI {
 				   gb.getOccupancyAt(row + 1, col) != chipColour && 
 				   gb.getOccupancyAt(row, col) != chipColour) {
 					//TEST PRINT STATEMENT
-					System.out.println("1st Vertical heuristic added");
+					//System.out.println("1st Vertical heuristic added");
 					hueristic++;
 				}
 			}
@@ -745,7 +786,7 @@ public class AI {
 				   gb.getOccupancyAt(row, col) != chipColour && 
 				   gb.getOccupancyAt(row - 1, col) != chipColour) {
 					//TEST PRINT STATEMENT
-					System.out.println("2nd Vertical heuristic added");
+					//System.out.println("2nd Vertical heuristic added");
 					hueristic++;
 				}
 			}
@@ -766,7 +807,7 @@ public class AI {
 				   gb.getOccupancyAt(row - 1, col) != chipColour && 
 				   gb.getOccupancyAt(row - 2, col) != chipColour) {
 					//TEST PRINT STATEMENT
-					System.out.println("3rd Vertical heuristic added");
+					//System.out.println("3rd Vertical heuristic added");
 					hueristic++;
 				}
 			}
@@ -787,7 +828,7 @@ public class AI {
 				   gb.getOccupancyAt(row - 2, col) != chipColour && 
 				   gb.getOccupancyAt(row - 3, col) != chipColour) {
 					//TEST PRINT STATEMENT
-					System.out.println("4th Vertical heuristic added");
+					//System.out.println("4th Vertical heuristic added");
 					hueristic++;
 				}
 			}
@@ -810,7 +851,7 @@ public class AI {
 				   gb.getOccupancyAt(row - 1, col - 2) != chipColour && 
 				   gb.getOccupancyAt(row, col) != chipColour) {
 					//TEST PRINT STATEMENT
-					System.out.println("1st Left Down Diagonal heuristic added");
+					//System.out.println("1st Left Down Diagonal heuristic added");
 					hueristic++;
 				}
 			}
@@ -832,7 +873,7 @@ public class AI {
 				   gb.getOccupancyAt(row, col) != chipColour && 
 				   gb.getOccupancyAt(row + 1, col + 2) != chipColour) {
 					//TEST PRINT STATEMENT
-					System.out.println("2nd Left Down Diagonal heuristic added");
+					//System.out.println("2nd Left Down Diagonal heuristic added");
 					hueristic++;
 				}
 			}
@@ -854,7 +895,7 @@ public class AI {
 				   gb.getOccupancyAt(row + 1, col + 2) != chipColour && 
 				   gb.getOccupancyAt(row + 2, col + 4) != chipColour) {
 					//TEST PRINT STATEMENT
-					System.out.println("3rd Left Down Diagonal heuristic added");
+					//System.out.println("3rd Left Down Diagonal heuristic added");
 					hueristic++;
 				}
 			}
@@ -876,7 +917,7 @@ public class AI {
 				   gb.getOccupancyAt(row + 2, col + 4) != chipColour && 
 				   gb.getOccupancyAt(row + 3, col + 6) != chipColour) {
 					//TEST PRINT STATEMENT
-					System.out.println("4th Left Down Diagonal heuristic added");
+					//System.out.println("4th Left Down Diagonal heuristic added");
 					hueristic++;
 				}
 			}
@@ -899,7 +940,7 @@ public class AI {
 				   gb.getOccupancyAt(row + 1, col - 2) != chipColour &&
 				   gb.getOccupancyAt(row, col) != chipColour) {
 					//TEST PRINT STATEMENT
-					System.out.println("1st Left Up Diagonal heuristic added");
+					//System.out.println("1st Left Up Diagonal heuristic added");
 					hueristic++;
 				}
 			}
@@ -921,7 +962,7 @@ public class AI {
 				   gb.getOccupancyAt(row, col) != chipColour && 
 				   gb.getOccupancyAt(row - 1, col + 2) != chipColour) {
 					//TEST PRINT STATEMENT
-					System.out.println("2nd Left Up Diagonal heuristic added");
+					//System.out.println("2nd Left Up Diagonal heuristic added");
 					hueristic++;
 				}
 			}
@@ -943,7 +984,7 @@ public class AI {
 				   gb.getOccupancyAt(row - 1, col + 2) != chipColour && 
 				   gb.getOccupancyAt(row - 2, col + 4) != chipColour) {
 					//TEST PRINT STATEMENT
-					System.out.println("3rd Left Up Diagonal heuristic added");
+					//System.out.println("3rd Left Up Diagonal heuristic added");
 					hueristic++;
 				}
 			}
@@ -965,7 +1006,7 @@ public class AI {
 				   gb.getOccupancyAt(row - 2, col + 4) != chipColour &&
 				   gb.getOccupancyAt(row - 3, col + 6) != chipColour) {
 					//TEST PRINT STATEMENT
-					System.out.println("4th Left Up Diagonal heuristic added");
+					//System.out.println("4th Left Up Diagonal heuristic added");
 					hueristic++;
 				}
 			}

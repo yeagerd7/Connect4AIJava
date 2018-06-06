@@ -57,11 +57,10 @@ public class Main {
             else {
                 String calculationsString = "";
                 int column = 0;
+                System.out.println("Its the AI's turn!");
                 if (count == 1) {
                     Random rand = new Random();
                     column = rand.nextInt(6);
-                    System.out.println("Its the AI's first turn so it's going to randomly drop a chip at " +
-                            "column " + column);
                     //6 is the maximum and the 0 is our minimum
                     column = 2 * column + 1;
                     game.AIPlay(column);
@@ -77,7 +76,6 @@ public class Main {
                     System.out.println();
                     game.printBoard();
                 } else {
-                    System.out.println("Its the AI's turn!\n");
                     boolean winnableMoveExists = false;
                     // updates AI calculations by performing offensive calculations
                     for (int i = 0; i < 7; i++) {
@@ -111,12 +109,12 @@ public class Main {
 
                     game.AIPlay(column);
                     game.printBoard();
-                    System.out.println("Current Heuristic Calculation: " + calculationsString + "\n");
-                    if (column == 1) {
-                        System.out.println("AI placed a yellow chip at Column " + 0 + "\n");
-                    } else {
-                        System.out.println("AI placed a yellow chip at Column " + ((column - 1) / 2) + "\n");
-                    }
+                }
+                System.out.println("Current Heuristic Calculation: " + calculationsString + "\n");
+                if (column == 1) {
+                    System.out.println("AI placed a yellow chip at Column " + 0 + "\n");
+                } else {
+                    System.out.println("AI placed a yellow chip at Column " + ((column - 1) / 2) + "\n");
                 }
             }
 

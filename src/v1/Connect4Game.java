@@ -50,6 +50,19 @@ public class Connect4Game {
         }
     }
 
+    public void AIPlay(int column)
+    {
+        boolean spotFilled = false;
+        int i = 6;
+        while(spotFilled == false && i > -1) {
+            if(gameBoard[i][column] == ' ') {
+                gameBoard[i][column] = ai;
+                spotFilled = true;
+            }
+            i--;
+        }
+    }
+
     public boolean columnFilled(int column) {
         boolean columnFilled = true;
         int i = 5;
@@ -77,19 +90,6 @@ public class Connect4Game {
     		nextPosition--;
     	}
     	return nextPosition;
-    }
-
-    public void AIPlay(int column)
-    {
-    	boolean spotFilled = false;
-        int i = 6;
-        while(spotFilled == false && i > -1) {
-            if(gameBoard[i][column] == ' ') {
-                gameBoard[i][column] = ai;
-                spotFilled = true;
-            }
-            i--;
-        }
     }
 
     private char[][] generateInitialBoard(char[][] board){

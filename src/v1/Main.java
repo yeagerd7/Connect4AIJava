@@ -12,7 +12,6 @@ public class Main {
         int count = 0;
         while (game.getWinner() == 0) {
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
             //Its the human's turn
             if (game.getTurn() == 0) {
                 System.out.println("Its your turn!\n");
@@ -49,6 +48,7 @@ public class Main {
                 // make a connect four, the more points it added
                 for (int i = 0; i < 7; i++) {
                     int points = ai.aiCalculations(2 * i + 1, game, 'R');
+                    //System.out.println(points);
                     ai.addPoints(points, i);
                 }
             }
@@ -57,45 +57,66 @@ public class Main {
             else {
                 String calculationsString = "";
                 int column = 0;
-                System.out.println("Its the AI's turn!\n");
-                boolean winnableMoveExists = false;
-                // updates AI calculations by performing offensive calculations
-                for (int i = 0; i < 7; i++) {
-                    int points;
-                    if (game.columnFilled(2 * i + 1)) {
-                        points = -100;
-                    } else {
-                        points = ai.aiCalculations(2 * i + 1, game, 'R');
-                    }
-
-                    ai.addPoints(points, i);
-                    int currentCalculation = ai.getCalculations().get(i).peek();
-                    calculationsString += currentCalculation + " ";
-
-                    if (game.isWinnableMove(game.getNextPositionInCol(2 * i + 1), 2 * i + 1) &&
-                            !game.columnFilled(2 * i + 1)) {
-                        if (!winnableMoveExists) {
-                            winnableMoveExists = true;
-                            column = 2 * i + 1;
-                        }
-                        if (winnableMoveExists &&
-                                game.getOccupancyAt(game.getNextPositionInCol(2 * i + 1), 2 * i + 1) == 'Y') {
-                            column = 2 * i + 1;
-                        }
-                    }
-                }
-                if (!winnableMoveExists) {
-                    column = ai.activateBrain();
+                if (count == 1) {
+                    Random rand = new Random();
+                    column = rand.nextInt(6);
+                    System.out.println("Its the AI's first turn so it's going to randomly drop a chip at " +
+                            "column " + column);
+                    //6 is the maximum and the 0 is our minimum
                     column = 2 * column + 1;
-                }
+                    game.AIPlay(column);
 
-                game.AIPlay(column);
-                game.printBoard();
-                System.out.println("Current Heuristic Calculation: " + calculationsString + "\n");
-                if (column == 1) {
-                    System.out.println("AI placed a chip at Column " + 0 + "\n");
+                    // updates AI calculations by preforming offensive calculations
+                    for (int i = 0; i < 7; i++) {
+                        int points = ai.aiCalculations(2 * i + 1, game, 'Y');
+                        ai.addPoints(points, i);
+                        int currentCalculation = ai.getCalculations().get(i).peek();
+                        calculationsString += currentCalculation + " ";
+                    }
+
+                    System.out.println();
+                    game.printBoard();
                 } else {
-                    System.out.println("AI placed a chip at Column " + ((column - 1) / 2) + "\n");
+                    System.out.println("Its the AI's turn!\n");
+                    boolean winnableMoveExists = false;
+                    // updates AI calculations by performing offensive calculations
+                    for (int i = 0; i < 7; i++) {
+                        int points;
+                        if (game.columnFilled(2 * i + 1)) {
+                            points = -100;
+                        } else {
+                            points = ai.aiCalculations(2 * i + 1, game, 'R');
+                        }
+
+                        ai.addPoints(points, i);
+                        int currentCalculation = ai.getCalculations().get(i).peek();
+                        calculationsString += currentCalculation + " ";
+
+                        if (game.isWinnableMove(game.getNextPositionInCol(2 * i + 1), 2 * i + 1) &&
+                                !game.columnFilled(2 * i + 1)) {
+                            if (!winnableMoveExists) {
+                                winnableMoveExists = true;
+                                column = 2 * i + 1;
+                            }
+                            if (winnableMoveExists &&
+                                    game.getOccupancyAt(game.getNextPositionInCol(2 * i + 1), 2 * i + 1) == 'Y') {
+                                column = 2 * i + 1;
+                            }
+                        }
+                    }
+                    if (!winnableMoveExists) {
+                        column = ai.activateBrain();
+                        column = 2 * column + 1;
+                    }
+
+                    game.AIPlay(column);
+                    game.printBoard();
+                    System.out.println("Current Heuristic Calculation: " + calculationsString + "\n");
+                    if (column == 1) {
+                        System.out.println("AI placed a yellow chip at Column " + 0 + "\n");
+                    } else {
+                        System.out.println("AI placed a yellow chip at Column " + ((column - 1) / 2) + "\n");
+                    }
                 }
             }
 

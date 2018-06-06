@@ -447,13 +447,6 @@ public class AI {
 			newPoints = aiCalculations(popThisColumn * 2 + 1, gb, 'R');// recalculates offensive points
 			addPoints(newPoints, popThisColumn);
 		}
-		//TEST PRINT CODE
-		String locations = "Blocked Locations: ";
-		for(int i = 0; i < locationsBlocked.size(); i++) {
-		    locations += locationsBlocked.get(i) + " ";
-        }
-        System.out.println(locations + "\n");
-
 	}// end of blockedMove
 
 	/*

@@ -60,7 +60,7 @@ public class Main {
                 System.out.println("Its the AI's turn!");
                 if (count == 1) {
                     Random rand = new Random();
-                    column = rand.nextInt(6);
+                    column = rand.nextInt(4) + 1;
                     //6 is the maximum and the 0 is our minimum
                     column = 2 * column + 1;
                     game.AIPlay(column);

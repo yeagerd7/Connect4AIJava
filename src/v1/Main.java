@@ -103,7 +103,8 @@ public class Main
 						calculationsString += currentCalculation + " ";
 
                 		if(game.isWinnableMove(game.getNextPositionInCol(2 * i + 1) , 2 * i + 1)) {
-                			System.out.println("Winnable Move!!");
+                			//TEST PRINT STATEMENT
+                			//System.out.println("Winnable Move!!");
                 			if(winnableMoveExists == false) {
                 				winnableMoveExists = true;
                 				column = 2 * i + 1;

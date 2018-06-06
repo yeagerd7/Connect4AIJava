@@ -637,7 +637,7 @@ public class AI {
 		int popThisColumn;
 		int newPoints;
 		// Pops all of the columns blocked
-		for(int i = 0; i<locationsBlocked.size(); i++) {
+		for(int i = 0; i < locationsBlocked.size(); i++) {
 			popThisColumn = locationsBlocked.get(i);
 			if(popThisColumn == 1) {
 				popThisColumn = 0;
@@ -646,7 +646,7 @@ public class AI {
 				popThisColumn = (popThisColumn - 1) / 2;
 			}
 			calculations.get(popThisColumn).pop(); // pop columns blocked by chip placement
-			newPoints = aiCalculations(popThisColumn*2+1, gb, 'Y');// recalculates offensive points
+			newPoints = aiCalculations(popThisColumn*2+1, gb, 'R');// recalculates offensive points
 			addPoints(newPoints, popThisColumn);
 		}
 		
@@ -760,9 +760,9 @@ public class AI {
 		if(row + 3 <= 5 && row + 2 <= 5 && row + 1 <= 5 && row <= 5) {
 			if(gb.isPlayableMove(row + 3,col) && gb.isPlayableMove(row + 2,col) && 
 			   gb.isPlayableMove(row + 1,col) && gb.isPlayableMove(row,col) ) {
-				if(gb.getOccupancyAt(row + 3, col) != chipColour && 
-				   gb.getOccupancyAt(row + 2, col) != chipColour && 
-				   gb.getOccupancyAt(row + 1, col) != chipColour && 
+				if(gb.getOccupancyAt(row + 3, col) != chipColour &&
+				   gb.getOccupancyAt(row + 2, col) != chipColour &&
+				   gb.getOccupancyAt(row + 1, col) != chipColour &&
 				   gb.getOccupancyAt(row, col) != chipColour) {
 					//TEST PRINT STATEMENT
 					//System.out.println("1st Vertical heuristic added");
@@ -781,9 +781,9 @@ public class AI {
 		if(row + 2 <= 5 && row + 1 <= 5 && row <= 5 && row - 1 >= 0) {
 			if(gb.isPlayableMove(row + 2,col) && gb.isPlayableMove(row + 1,col) && 
 			   gb.isPlayableMove(row,col) && gb.isPlayableMove(row - 1,col) ) {
-				if(gb.getOccupancyAt(row + 2, col) != chipColour && 
-				   gb.getOccupancyAt(row + 1, col) != chipColour && 
-				   gb.getOccupancyAt(row, col) != chipColour && 
+				if(gb.getOccupancyAt(row + 2, col) != chipColour &&
+				   gb.getOccupancyAt(row + 1, col) != chipColour &&
+				   gb.getOccupancyAt(row, col) != chipColour &&
 				   gb.getOccupancyAt(row - 1, col) != chipColour) {
 					//TEST PRINT STATEMENT
 					//System.out.println("2nd Vertical heuristic added");
@@ -802,9 +802,9 @@ public class AI {
 		if(row + 1 <= 5 && row <= 5 && row - 1 >= 0 && row - 2 >= 0) {
 			if(gb.isPlayableMove(row + 1,col) && gb.isPlayableMove(row,col) && 
 			   gb.isPlayableMove(row - 1,col) && gb.isPlayableMove(row - 2,col)) {
-				if(gb.getOccupancyAt(row + 1, col) != chipColour && 
-				   gb.getOccupancyAt(row, col) != chipColour && 
-				   gb.getOccupancyAt(row - 1, col) != chipColour && 
+				if(gb.getOccupancyAt(row + 1, col) != chipColour &&
+				   gb.getOccupancyAt(row, col) != chipColour &&
+				   gb.getOccupancyAt(row - 1, col) != chipColour &&
 				   gb.getOccupancyAt(row - 2, col) != chipColour) {
 					//TEST PRINT STATEMENT
 					//System.out.println("3rd Vertical heuristic added");
@@ -823,9 +823,9 @@ public class AI {
 		if(row >= 0 && row - 1 >= 0 && row - 2 >= 0 && row - 3 >= 0) {
 			if(gb.isPlayableMove(row,col) && gb.isPlayableMove(row - 1,col) && 
 			   gb.isPlayableMove(row - 2,col) && gb.isPlayableMove(row - 3,col)) {
-				if(gb.getOccupancyAt(row, col) != chipColour && 
-				   gb.getOccupancyAt(row - 1, col) != chipColour && 
-				   gb.getOccupancyAt(row - 2, col) != chipColour && 
+				if(gb.getOccupancyAt(row, col) != chipColour &&
+				   gb.getOccupancyAt(row - 1, col) != chipColour &&
+				   gb.getOccupancyAt(row - 2, col) != chipColour &&
 				   gb.getOccupancyAt(row - 3, col) != chipColour) {
 					//TEST PRINT STATEMENT
 					//System.out.println("4th Vertical heuristic added");
@@ -848,7 +848,7 @@ public class AI {
 			   gb.isPlayableMove(row - 1, col - 2) && gb.isPlayableMove(row, col)) {
 				if(gb.getOccupancyAt(row - 3, col - 6) != chipColour &&
 				   gb.getOccupancyAt(row - 2, col - 4) != chipColour &&
-				   gb.getOccupancyAt(row - 1, col - 2) != chipColour && 
+				   gb.getOccupancyAt(row - 1, col - 2) != chipColour &&
 				   gb.getOccupancyAt(row, col) != chipColour) {
 					//TEST PRINT STATEMENT
 					//System.out.println("1st Left Down Diagonal heuristic added");
@@ -868,9 +868,9 @@ public class AI {
 		   row - 2 >= 0 && row - 1 >= 0 && row >= 0 && row + 1 <= 5) {
 			if(gb.isPlayableMove(row - 2, col - 4) && gb.isPlayableMove(row - 1, col - 2) && 
 			   gb.isPlayableMove(row, col) && gb.isPlayableMove(row + 1, col + 2) ) {
-				if(gb.getOccupancyAt(row - 2, col - 4) != chipColour && 
-				   gb.getOccupancyAt(row - 1, col - 2) != chipColour && 
-				   gb.getOccupancyAt(row, col) != chipColour && 
+				if(gb.getOccupancyAt(row - 2, col - 4) != chipColour &&
+				   gb.getOccupancyAt(row - 1, col - 2) != chipColour &&
+				   gb.getOccupancyAt(row, col) != chipColour &&
 				   gb.getOccupancyAt(row + 1, col + 2) != chipColour) {
 					//TEST PRINT STATEMENT
 					//System.out.println("2nd Left Down Diagonal heuristic added");
@@ -892,7 +892,7 @@ public class AI {
 			   gb.isPlayableMove(row + 1, col + 2) && gb.isPlayableMove(row + 2, col + 4)) {
 				if(gb.getOccupancyAt(row - 1, col - 2) != chipColour &&
 				   gb.getOccupancyAt(row, col) != chipColour &&
-				   gb.getOccupancyAt(row + 1, col + 2) != chipColour && 
+				   gb.getOccupancyAt(row + 1, col + 2) != chipColour &&
 				   gb.getOccupancyAt(row + 2, col + 4) != chipColour) {
 					//TEST PRINT STATEMENT
 					//System.out.println("3rd Left Down Diagonal heuristic added");
@@ -912,9 +912,9 @@ public class AI {
 		   row >= 0 && row + 1 <= 5 && row + 2 <= 5 && row + 3 <= 5) {
 			if(gb.isPlayableMove(row,col) && gb.isPlayableMove(row + 1, col + 2) && 
 			   gb.isPlayableMove(row + 2, col + 4) && gb.isPlayableMove(row + 3, col + 6)) {
-				if(gb.getOccupancyAt(row, col) != chipColour && 
-				   gb.getOccupancyAt(row + 1, col + 2) != chipColour && 
-				   gb.getOccupancyAt(row + 2, col + 4) != chipColour && 
+				if(gb.getOccupancyAt(row, col) != chipColour &&
+				   gb.getOccupancyAt(row + 1, col + 2) != chipColour &&
+				   gb.getOccupancyAt(row + 2, col + 4) != chipColour &&
 				   gb.getOccupancyAt(row + 3, col + 6) != chipColour) {
 					//TEST PRINT STATEMENT
 					//System.out.println("4th Left Down Diagonal heuristic added");
@@ -936,7 +936,7 @@ public class AI {
 			if(gb.isPlayableMove(row + 3, col - 6) && gb.isPlayableMove(row + 2, col - 4) &&
 			   gb.isPlayableMove(row + 1, col - 2) && gb.isPlayableMove(row, col)) {
 				if(gb.getOccupancyAt(row + 3, col - 6) != chipColour &&
-				   gb.getOccupancyAt(row + 2, col - 4) != chipColour && 
+				   gb.getOccupancyAt(row + 2, col - 4) != chipColour &&
 				   gb.getOccupancyAt(row + 1, col - 2) != chipColour &&
 				   gb.getOccupancyAt(row, col) != chipColour) {
 					//TEST PRINT STATEMENT
@@ -1014,3 +1014,4 @@ public class AI {
 		return hueristic;
 	}// End of aiCalculation
 }// End of AI
+

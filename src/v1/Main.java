@@ -109,8 +109,7 @@ public class Main
                 				winnableMoveExists = true;
                 				column = 2 * i + 1;
                 			}
-							if( winnableMoveExists == true && game.getOccupancyAt(game.getNextPositionInCol(2*i+1), 2*i+1) == 'Y' )
-							{
+							if( winnableMoveExists == true && game.getOccupancyAt(game.getNextPositionInCol(2*i+1), 2*i+1) == 'Y' ) {
 								column = 2 * i + 1;
 							}
                 		}

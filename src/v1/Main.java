@@ -48,7 +48,6 @@ public class Main {
                 // make a connect four, the more points it added
                 for (int i = 0; i < 7; i++) {
                     int points = ai.aiCalculations(2 * i + 1, game, 'R');
-                    //System.out.println(points);
                     ai.addPoints(points, i);
                 }
             }

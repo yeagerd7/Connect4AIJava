@@ -83,28 +83,13 @@ public class AI {
 			   (gb.isPlayableMove(row, column - 4) || gb.getOccupancyAt(row, column - 4) == 'Y') &&
 			   (gb.isPlayableMove(row, column - 2) || gb.getOccupancyAt(row, column - 2) == 'Y')) {
 				if(gb.isPlayableMove(row, column - 6)) {
-					int size = locationsBlocked.size();
-					for(int i = 0; i < size; i++) {
-						if(locationsBlocked.get(i) == column - 6) {
-							locationsBlocked.add(column - 6);
-						}
-					}
+					locationsBlocked.add(column - 6);
 				}
 				if(gb.isPlayableMove(row, column - 4)) {
-					int size = locationsBlocked.size();
-					for(int i = 0; i < size; i++) {
-						if(locationsBlocked.get(i) == column - 4) {
-							locationsBlocked.add(column - 4);
-						}
-					}
+					locationsBlocked.add(column - 4);
 				}
 				if(gb.isPlayableMove(row, column - 2)) {
-					int size = locationsBlocked.size();
-					for(int i = 0; i < size; i++) {
-						if(locationsBlocked.get(i) == column - 2) {
-							locationsBlocked.add(column - 2);
-						}
-					}
+					locationsBlocked.add(column - 2);
 				}
 			}
 		}
@@ -121,28 +106,13 @@ public class AI {
 			   (gb.isPlayableMove(row, column - 2) || gb.getOccupancyAt(row, column - 2) == 'Y') &&
 			   (gb.isPlayableMove(row, column + 2) || gb.getOccupancyAt(row, column + 2) == 'Y')) {
 				if(gb.isPlayableMove(row, column - 4)) {
-					int size = locationsBlocked.size();
-					for(int i = 0; i < size; i++) {
-						if(locationsBlocked.get(i) == column - 4) {
-							locationsBlocked.add(column - 4);
-						}
-					}
+					locationsBlocked.add(column - 4);
 				}
 				if(gb.isPlayableMove(row, column - 2)) {
-					int size = locationsBlocked.size();
-					for(int i = 0; i < size; i++) {
-						if(locationsBlocked.get(i) == column - 2) {
-							locationsBlocked.add(column - 2);
-						}
-					}
+					locationsBlocked.add(column - 2);
 				}
 				if(gb.isPlayableMove(row, column + 2)) {
-					int size = locationsBlocked.size();
-					for(int i = 0; i < size; i++) {
-						if(locationsBlocked.get(i) == column + 2) {
-							locationsBlocked.add(column + 2);
-						}
-					}
+					locationsBlocked.add(column + 2);
 				}
 			}
 		}
@@ -160,28 +130,13 @@ public class AI {
 			   (gb.isPlayableMove(row, column + 2) || gb.getOccupancyAt(row, column + 2) == 'Y') &&
 			   (gb.isPlayableMove(row, column + 4) || gb.getOccupancyAt(row, column + 4) == 'Y')) {
 				if(gb.isPlayableMove(row, column - 2)) {
-					int size = locationsBlocked.size();
-					for(int i = 0; i < size; i++) {
-						if(locationsBlocked.get(i) == column - 2) {
-							locationsBlocked.add(column - 2);
-						}
-					}
+					locationsBlocked.add(column - 2);
 				}
 				if(gb.isPlayableMove(row, column + 2)) {
-					int size = locationsBlocked.size();
-					for(int i = 0; i < size; i++) {
-						if(locationsBlocked.get(i) == column + 2) {
-							locationsBlocked.add(column + 2);
-						}
-					}
+					locationsBlocked.add(column + 2);
 				}
 				if(gb.isPlayableMove(row, column + 4)) {
-					int size = locationsBlocked.size();
-					for(int i = 0; i < size; i++) {
-						if(locationsBlocked.get(i) == column + 4) {
-							locationsBlocked.add(column + 4);
-						}
-					}
+					locationsBlocked.add(column + 4);
 				}
 			}
 		}
@@ -199,28 +154,13 @@ public class AI {
 			   (gb.isPlayableMove(row, column + 4) || gb.getOccupancyAt(row, column + 4) == 'Y') &&
 			   (gb.isPlayableMove(row, column + 6) || gb.getOccupancyAt(row, column + 6) == 'Y')) {
 				if(gb.isPlayableMove(row, column + 2)) {
-					int size = locationsBlocked.size();
-					for(int i = 0; i < size; i++) {
-						if(locationsBlocked.get(i) == column + 2) {
-							locationsBlocked.add(column + 2);
-						}
-					}
+					locationsBlocked.add(column + 2);
 				}
 				if(gb.isPlayableMove(row,column + 4)) {
-					int size = locationsBlocked.size();
-					for(int i = 0; i < size; i++) {
-						if(locationsBlocked.get(i) == column + 4) {
-							locationsBlocked.add(column + 4);
-						}
-					}
+					locationsBlocked.add(column + 4);
 				}
 				if(gb.isPlayableMove(row,column + 6)) {
-					int size = locationsBlocked.size();
-					for(int i = 0; i < size; i++) {
-						if(locationsBlocked.get(i) == column + 6) {
-							locationsBlocked.add(column + 6);
-						}
-					}
+					locationsBlocked.add(column + 6);
 				}
 			}
 		}
@@ -239,12 +179,7 @@ public class AI {
 			   (gb.isPlayableMove(row - 2, column) || gb.getOccupancyAt(row - 2, column) == 'Y') &&
 			   (gb.isPlayableMove(row - 1, column) || gb.getOccupancyAt(row - 1, column) == 'Y')) {
 				if(gb.isPlayableMove(row - 3, column)) {
-					int size = locationsBlocked.size();
-					for(int i = 0; i < size; i++) {
-						if(locationsBlocked.get(i) == column) {
-							locationsBlocked.add(column);
-						}
-					}
+					locationsBlocked.add(column);
 				}
 			}
 		}
@@ -262,12 +197,7 @@ public class AI {
 			   (gb.isPlayableMove(row - 1, column) || gb.getOccupancyAt(row - 1, column) == 'Y') &&
 			   (gb.isPlayableMove(row + 1, column) || gb.getOccupancyAt(row + 1, column) == 'Y')) {
 				if(gb.isPlayableMove(row - 2, column)) {
-					int size = locationsBlocked.size();
-					for(int i = 0; i < size; i++) {
-						if(locationsBlocked.get(i) == column) {
-							locationsBlocked.add(column);
-						}
-					}
+					locationsBlocked.add(column);
 				}
 			}
 		}
@@ -285,12 +215,7 @@ public class AI {
 			   (gb.isPlayableMove(row + 1, column) || gb.getOccupancyAt(row + 1, column) == 'Y') &&
 			   (gb.isPlayableMove(row + 2, column) || gb.getOccupancyAt(row + 2, column) == 'Y')) {
 				if(gb.isPlayableMove(row + 1,column)) {
-					int size = locationsBlocked.size();
-					for(int i = 0; i < size; i++) {
-						if(locationsBlocked.get(i) == column) {
 							locationsBlocked.add(column);
-						}
-					}
 				}
 			}
 		}
@@ -307,12 +232,7 @@ public class AI {
 			   (gb.isPlayableMove(row + 2, column) || gb.getOccupancyAt(row + 2, column) == 'Y') &&
 			   (gb.isPlayableMove(row + 3, column) || gb.getOccupancyAt(row + 3, column) == 'Y')) {
 				if(gb.isPlayableMove(row + 1,column)) {
-					int size = locationsBlocked.size();
-					for(int i = 0; i < size; i++) {
-						if(locationsBlocked.get(i) == column) {
-							locationsBlocked.add(column);
-						}
-					}
+					locationsBlocked.add(column);
 				}
 			}
 		}
@@ -335,28 +255,13 @@ public class AI {
 				 * it was placed there already.
 				 */
 				if(gb.isPlayableMove(row + 3, column - 6)) {
-					int size = locationsBlocked.size();
-					for(int i = 0; i < size; i++) {
-						if(locationsBlocked.get(i) == column - 6) {
-							locationsBlocked.add(column - 6);
-						}
-					}
+					locationsBlocked.add(column - 6);
 				}
 				if(gb.isPlayableMove(row + 2, column - 4)) {
-					int size = locationsBlocked.size();
-					for(int i = 0; i < size; i++) {
-						if(locationsBlocked.get(i) == column - 4) {
-							locationsBlocked.add(column - 4);
-						}
-					}
+					locationsBlocked.add(column - 4);
 				}
 				if(gb.isPlayableMove(row + 1, column - 2)) {
-					int size = locationsBlocked.size();
-					for(int i = 0; i < size; i++) {
-						if(locationsBlocked.get(i) == column - 2) {
-							locationsBlocked.add(column - 2);
-						}
-					}
+					locationsBlocked.add(column - 2);
 				}
 			}
 		}
@@ -374,28 +279,13 @@ public class AI {
 			   (gb.isPlayableMove(row + 1, column - 2) || gb.getOccupancyAt(row + 1, column - 2) == 'Y') &&
 			   (gb.isPlayableMove(row - 1, column + 2) || gb.getOccupancyAt(row - 1, column + 2) == 'Y')) {
 				if(gb.isPlayableMove(row + 2, column - 4)) {
-					int size = locationsBlocked.size();
-					for(int i = 0; i < size; i++) {
-						if(locationsBlocked.get(i) == column - 4) {
-							locationsBlocked.add(column - 4);
-						}
-					}
+					locationsBlocked.add(column - 4);
 				}
 				if(gb.isPlayableMove(row + 1, column - 2)) {
-					int size = locationsBlocked.size();
-					for(int i = 0; i < size; i++) {
-						if(locationsBlocked.get(i) == column - 2) {
-							locationsBlocked.add(column - 2);
-						}
-					}
+					locationsBlocked.add(column - 2);
 				}
 				if(gb.isPlayableMove(row - 1, column + 2)) {
-					int size = locationsBlocked.size();
-					for(int i = 0; i < size; i++) {
-						if(locationsBlocked.get(i) == column + 2) {
-							locationsBlocked.add(column + 2);
-						}
-					}
+					locationsBlocked.add(column + 2);
 				}
 			}
 		}
@@ -413,28 +303,13 @@ public class AI {
 			   (gb.isPlayableMove(row - 1, column + 2) || gb.getOccupancyAt(row - 1, column + 2) == 'Y') &&
 			   (gb.isPlayableMove(row + 1, column - 2) || gb.getOccupancyAt(row + 1, column - 2) == 'Y')) {
 				if(gb.isPlayableMove(row - 2, column + 4)) {
-					int size = locationsBlocked.size();
-					for(int i = 0; i < size; i++) {
-						if(locationsBlocked.get(i) == column + 4) {
-							locationsBlocked.add(column + 4);
-						}
-					}
+					locationsBlocked.add(column + 4);
 				}
 				if(gb.isPlayableMove(row - 1, column + 2)) {
-					int size = locationsBlocked.size();
-					for(int i = 0; i < size; i++) {
-						if(locationsBlocked.get(i) == column + 2) {
-							locationsBlocked.add(column + 2);
-						}
-					}
+					locationsBlocked.add(column + 2);
 				}
 				if(gb.isPlayableMove(row + 1, column - 2)) {
-					int size = locationsBlocked.size();
-					for(int i = 0; i < size; i++) {
-						if(locationsBlocked.get(i) == column - 2) {
-							locationsBlocked.add(column - 2);
-						}
-					}
+					locationsBlocked.add(column - 2);
 				}
 			}
 		}
@@ -452,28 +327,13 @@ public class AI {
 			   (gb.isPlayableMove(row - 2, column + 4) || gb.getOccupancyAt(row - 2, column + 4) == 'Y') &&
 			   (gb.isPlayableMove(row - 1, column + 2) || gb.getOccupancyAt(row - 1, column + 2) == 'Y')) {
 				if(gb.isPlayableMove(row - 3, column + 6)) {
-					int size = locationsBlocked.size();
-					for(int i = 0; i < size; i++) {
-						if(locationsBlocked.get(i) == column + 6) {
-							locationsBlocked.add(column + 6);
-						}
-					}
+					locationsBlocked.add(column + 6);
 				}
 				if(gb.isPlayableMove(row - 2, column + 4)) {
-					int size = locationsBlocked.size();
-					for(int i = 0; i < size; i++) {
-						if(locationsBlocked.get(i) == column + 4) {
-							locationsBlocked.add(column + 4);
-						}
-					}
+					locationsBlocked.add(column + 4);
 				}
 				if(gb.isPlayableMove(row - 3, column + 6)) {
-					int size = locationsBlocked.size();
-					for(int i = 0; i < size; i++) {
-						if(locationsBlocked.get(i) == column + 6) {
-							locationsBlocked.add(column + 6);
-						}
-					}
+					locationsBlocked.add(column + 6);
 				}
 			}
 		}
@@ -491,28 +351,13 @@ public class AI {
 			   (gb.isPlayableMove(row - 2, column - 4) || gb.getOccupancyAt(row - 2, column - 4) == 'Y') &&
 			   (gb.isPlayableMove(row - 1, column - 2) || gb.getOccupancyAt(row - 1, column - 2) == 'Y')) {
 				if(gb.isPlayableMove(row - 3, column - 6)) {
-					int size = locationsBlocked.size();
-					for(int i = 0; i < size; i++) {
-						if(locationsBlocked.get(i) == column - 6) {
-							locationsBlocked.add(column - 6);
-						}
-					}
+					locationsBlocked.add(column - 6);
 				}
 				if(gb.isPlayableMove(row - 2, column - 4)) {
-					int size = locationsBlocked.size();
-					for(int i = 0; i < size; i++) {
-						if(locationsBlocked.get(i) == column - 4) {
-							locationsBlocked.add(column - 4);
-						}
-					}
+					locationsBlocked.add(column - 4);
 				}
 				if(gb.isPlayableMove(row - 1, column - 2)) {
-					int size = locationsBlocked.size();
-					for(int i = 0; i < size; i++) {
-						if(locationsBlocked.get(i) == column - 2) {
-							locationsBlocked.add(column - 2);
-						}
-					}
+					locationsBlocked.add(column - 2);
 				}
 			}
 		}
@@ -530,28 +375,13 @@ public class AI {
 			   (gb.isPlayableMove(row - 1, column - 2) || gb.getOccupancyAt(row - 1, column - 2) == 'Y') &&
 			   (gb.isPlayableMove(row + 1, column + 2) || gb.getOccupancyAt(row + 1, column + 2) == 'Y')) {
 				if(gb.isPlayableMove(row - 2, column - 4)) {
-					int size = locationsBlocked.size();
-					for(int i = 0; i < size; i++) {
-						if(locationsBlocked.get(i) == column - 4) {
-							locationsBlocked.add(column - 4);
-						}
-					}
+					locationsBlocked.add(column - 4);
 				}
 				if(gb.isPlayableMove(row - 1, column - 2)) {
-					int size = locationsBlocked.size();
-					for(int i = 0; i < size; i++) {
-						if(locationsBlocked.get(i) == column - 2) {
-							locationsBlocked.add(column - 2);
-						}
-					}
+					locationsBlocked.add(column - 2);
 				}
 				if(gb.isPlayableMove(row + 1, column + 2)) {
-					int size = locationsBlocked.size();
-					for(int i = 0; i < size; i++) {
-						if(locationsBlocked.get(i) == column + 2) {
-							locationsBlocked.add(column + 2);
-						}
-					}
+					locationsBlocked.add(column + 2);
 				}
 			}
 		}
@@ -569,28 +399,13 @@ public class AI {
 			   (gb.isPlayableMove(row + 1, column + 2) || gb.getOccupancyAt(row + 1, column + 2) == 'Y') &&
 			   (gb.isPlayableMove(row + 2, column + 4) || gb.getOccupancyAt(row + 2, column + 4) == 'Y')) {
 				if(gb.isPlayableMove(row - 1, column - 2)) {
-					int size = locationsBlocked.size();
-					for(int i = 0; i < size; i++) {
-						if(locationsBlocked.get(i) == column - 2) {
-							locationsBlocked.add(column - 2);
-						}
-					}
+					locationsBlocked.add(column - 2);
 				}
 				if(gb.isPlayableMove(row + 1, column + 2)) {
-					int size = locationsBlocked.size();
-					for(int i = 0; i < size; i++) {
-						if(locationsBlocked.get(i) == column + 2) {
-							locationsBlocked.add(column + 2);
-						}
-					}
+					locationsBlocked.add(column + 2);
 				}
 				if(gb.isPlayableMove(row + 2, column + 4)) {
-					int size = locationsBlocked.size();
-					for(int i = 0; i < size; i++) {
-						if(locationsBlocked.get(i) == column + 4) {
-							locationsBlocked.add(column + 4);
-						}
-					}
+					locationsBlocked.add(column + 4);
 				}
 			}
 		}
@@ -608,28 +423,13 @@ public class AI {
 			   (gb.isPlayableMove(row + 2, column + 4) || gb.getOccupancyAt(row + 2, column + 4) == 'Y') &&
 			   (gb.isPlayableMove(row + 3, column + 6) || gb.getOccupancyAt(row + 3, column + 6) == 'Y')) {
 				if(gb.isPlayableMove(row + 1, column + 2)) {
-					int size = locationsBlocked.size();
-					for(int i = 0; i < size; i++) {
-						if(locationsBlocked.get(i) == column + 2) {
-							locationsBlocked.add(column + 2);
-						}
-					}
+					locationsBlocked.add(column + 2);
 				}
 				if(gb.isPlayableMove(row + 2, column + 4)) {
-					int size = locationsBlocked.size();
-					for(int i = 0; i < size; i++) {
-						if(locationsBlocked.get(i) == column + 4) {
-							locationsBlocked.add(column + 4);
-						}
-					}
+					locationsBlocked.add(column + 4);
 				}
 				if(gb.isPlayableMove(row + 3, column + 6)) {
-					int size = locationsBlocked.size();
-					for(int i = 0; i < size; i++) {
-						if(locationsBlocked.get(i) == column + 6) {
-							locationsBlocked.add(column + 6);
-						}
-					}
+					locationsBlocked.add(column + 6);
 				}
 			}
 		}

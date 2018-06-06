@@ -9,7 +9,7 @@ public class Connect4Game {
     private char[][] gameBoard;
 
     public Connect4Game() {
-        turn = 0;
+        turn = 1;
         winner = 0;
         gameBoard = new char[7][15];
         gameBoard = generateInitialBoard(gameBoard);

@@ -37,7 +37,7 @@ public class Main {
                 }
 
                 game.humanPlay(column);
-                System.out.println("\nYou dropped a red chip!\n");
+                System.out.println("\nYou dropped a red chip at Column: " + column + "!\n");
                 game.printBoard();
 
                 // updates AI calculations by performing defensive calculations
@@ -57,9 +57,8 @@ public class Main {
             else {
                 String calculationsString = "";
                 int column = 0;
-                System.out.println("Its the AI's turn!\n");
-                if (count == 1) {
-                    //To prevent easy horizontal wins for the player, the AI wil always put its first chip in Column 3
+                if (count == 0) {
+                    System.out.println("The AI goes first!\n");
                     column = 7;
                     game.AIPlay(column);
                     // updates AI calculations by preforming offensive calculations
@@ -69,10 +68,10 @@ public class Main {
                         int currentCalculation = ai.getCalculations().get(i).peek();
                         calculationsString += currentCalculation + " ";
                     }
-
-                    System.out.println();
                     game.printBoard();
-                } else {
+                }
+                else {
+                    System.out.println("Its the AI's turn!\n");
                     boolean winnableMoveExists = false;
                     // updates AI calculations by performing offensive calculations
                     for (int i = 0; i < 7; i++) {

@@ -93,14 +93,16 @@ public class Main {
                         int currentCalculation = ai.getCalculations().get(i).peek();
                         calculationsString += currentCalculation + " ";
 
-                        if (game.isWinnableMove(game.getNextPositionInCol(2 * i + 1), 2 * i + 1) && !game.columnFilled(2 * i + 1)) {
+                        if (game.isWinnableMove(game.getNextPositionInCol(2 * i + 1), 2 * i + 1) &&
+                                !game.columnFilled(2 * i + 1)) {
                             //TEST PRINT STATEMENT
                             //System.out.println("Winnable Move!!");
                             if (winnableMoveExists == false) {
                                 winnableMoveExists = true;
                                 column = 2 * i + 1;
                             }
-                            if (winnableMoveExists == true && game.getOccupancyAt(game.getNextPositionInCol(2 * i + 1), 2 * i + 1) == 'Y') {
+                            if (winnableMoveExists == true &&
+                                    game.getOccupancyAt(game.getNextPositionInCol(2 * i + 1), 2 * i + 1) == 'Y') {
                                 column = 2 * i + 1;
                             }
                         }

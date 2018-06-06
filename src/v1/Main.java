@@ -57,14 +57,11 @@ public class Main {
             else {
                 String calculationsString = "";
                 int column = 0;
-                System.out.println("Its the AI's turn!");
+                System.out.println("Its the AI's turn!\n");
                 if (count == 1) {
-                    Random rand = new Random();
-                    column = rand.nextInt(4) + 1;
-                    // 4 is the maximum and the 1 is our minimum
-                    column = 2 * column + 1;
+                    //To prevent easy horizontal wins for the player, the AI wil always put its first chip in Column 3
+                    column = 7;
                     game.AIPlay(column);
-
                     // updates AI calculations by preforming offensive calculations
                     for (int i = 0; i < 7; i++) {
                         int points = ai.aiCalculations(2 * i + 1, game, 'Y');

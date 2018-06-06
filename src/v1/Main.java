@@ -14,7 +14,7 @@ public class Main {
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
             //Its the human's turn
             if (game.getTurn() == 0) {
-                System.out.println("\nIts your turn!");
+                System.out.println("Its your turn!\n");
                 System.out.print("Drop a red chip in your desired column (0, 1, 2, 3, 4 ,5, 6): ");
                 int column = Integer.parseInt(br.readLine().trim());
                 boolean validInput = false;
@@ -58,12 +58,11 @@ public class Main {
             else {
                 String calculationsString = "";
                 int column = 0;
-                System.out.println("\nIts the AI's turn!\n");
                 if (count == 1) {
                     Random rand = new Random();
                     column = rand.nextInt(6);
                     System.out.println("Its the AI's first turn so it's going to randomly drop a chip at " +
-                            "column: " + column + "\n");
+                            "column " + column);
                     //6 is the maximum and the 0 is our minimum
                     column = 2 * column + 1;
                     game.AIPlay(column);
@@ -80,6 +79,7 @@ public class Main {
                     System.out.println();
                     game.printBoard();
                 } else {
+                    System.out.println("Its the AI's turn!\n");
                     boolean winnableMoveExists = false;
                     // updates AI calculations by performing offensive calculations
                     for (int i = 0; i < 7; i++) {
@@ -94,16 +94,14 @@ public class Main {
                         int currentCalculation = ai.getCalculations().get(i).peek();
                         calculationsString += currentCalculation + " ";
 
-                        if (game.isWinnableMove(game.getNextPositionInCol(2 * i + 1), 2 * i + 1) &&
-                                !game.columnFilled(2 * i + 1)) {
+                        if (game.isWinnableMove(game.getNextPositionInCol(2 * i + 1), 2 * i + 1) && !game.columnFilled(2 * i + 1)) {
                             //TEST PRINT STATEMENT
                             //System.out.println("Winnable Move!!");
                             if (winnableMoveExists == false) {
                                 winnableMoveExists = true;
                                 column = 2 * i + 1;
                             }
-                            if (winnableMoveExists == true &&
-                                    game.getOccupancyAt(game.getNextPositionInCol(2 * i + 1), 2 * i + 1) == 'Y') {
+                            if (winnableMoveExists == true && game.getOccupancyAt(game.getNextPositionInCol(2 * i + 1), 2 * i + 1) == 'Y') {
                                 column = 2 * i + 1;
                             }
                         }
@@ -117,12 +115,12 @@ public class Main {
 
                     game.AIPlay(column);
                     game.printBoard();
-                }
-                System.out.println("\nCurrent Heuristic Calculation: " + calculationsString);
-                if (column == 1) {
-                    System.out.println("AI placed a chip at Column " + 0);
-                } else {
-                    System.out.println("AI placed a chip at Column " + ((column - 1) / 2));
+                    System.out.println("Current Heuristic Calculation: " + calculationsString + "\n");
+                    if (column == 1) {
+                        System.out.println("AI placed a chip at Column " + 0 + "\n");
+                    } else {
+                        System.out.println("AI placed a chip at Column " + ((column - 1) / 2) + "\n");
+                    }
                 }
             }
 
@@ -148,7 +146,7 @@ public class Main {
         if (game.getWinner() == 1) {
             System.out.println("You won the game! :D");
         } else if (game.getWinner() == 2) {
-            System.out.println("The lost the game! :(");
+            System.out.println("You lost the game, the AI made a connect four! :(");
         } else {
             System.out.println("The game is a draw!");
         }

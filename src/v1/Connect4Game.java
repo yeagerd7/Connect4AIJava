@@ -21,7 +21,7 @@ public class Connect4Game {
     {
     	return gameBoard[row][col];
     }
-    
+
     public int getTurn() {
         return turn;
     }
@@ -62,7 +62,7 @@ public class Connect4Game {
         }
         return columnFilled;
     }
-    
+
     /*
      * Returns the next position available
      * in respect to the column number given
@@ -79,7 +79,7 @@ public class Connect4Game {
     	return nextPosition;
     }
 
-    public void AIPlay(int column) 
+    public void AIPlay(int column)
     {
     	boolean spotFilled = false;
         int i = 6;
@@ -116,6 +116,7 @@ public class Connect4Game {
             }
             System.out.println();
         }
+        System.out.println();
     }
 
     public int checkForWinner() {

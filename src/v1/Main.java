@@ -74,7 +74,6 @@ public class Main {
                         calculationsString += currentCalculation + " ";
                     }
 
-                    //TEST PRINT METHOD
                     System.out.println();
                     game.printBoard();
                 } else {
@@ -95,8 +94,6 @@ public class Main {
 
                         if (game.isWinnableMove(game.getNextPositionInCol(2 * i + 1), 2 * i + 1) &&
                                 !game.columnFilled(2 * i + 1)) {
-                            //TEST PRINT STATEMENT
-                            //System.out.println("Winnable Move!!");
                             if (!winnableMoveExists) {
                                 winnableMoveExists = true;
                                 column = 2 * i + 1;
@@ -107,8 +104,6 @@ public class Main {
                             }
                         }
                     }
-                    //TEST PRINT METHOD
-                    //System.out.println();
                     if (!winnableMoveExists) {
                         column = ai.activateBrain();
                         column = 2 * column + 1;

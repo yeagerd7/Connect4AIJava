@@ -47,8 +47,6 @@ public class AI {
 			int index = rand.nextInt(tiedIndexes.size() - 1);
 			placeChipHere = tiedIndexes.get(index);
 		}
-		//TEST PRINT METHOD
-		//System.out.println("\nHighest Calculation: " + maxCalculation + "\n");
 		return placeChipHere;
 	}
 
@@ -463,11 +461,8 @@ public class AI {
 	 * this method will update a specific columns heuristic
 	 */
 	public int aiCalculations(int col, Connect4Game gb, char chipColour) {
-		int hueristic = 0;
+		int heuristic = 0;
 		int row = gb.getNextPositionInCol(col);
-
-		//TEST PRINT STATEMENT
-		//System.out.println("Row: " + row + " Column: " + col);
 
 		// This will test all possible horizontal connect four
 		/* 
@@ -485,9 +480,7 @@ public class AI {
 				   gb.getOccupancyAt(row, col - 4) != chipColour &&
 				   gb.getOccupancyAt(row, col - 2) != chipColour &&
 				   gb.getOccupancyAt(row, col) != chipColour) {
-					//TEST PRINT STATEMENT
-					//System.out.println("1st Horizontal heuristic added");
-					hueristic++;
+					heuristic++;
 				}
 			}
 		}
@@ -506,9 +499,7 @@ public class AI {
 				   gb.getOccupancyAt(row, col - 2) != chipColour &&
 				   gb.getOccupancyAt(row, col) != chipColour &&
 				   gb.getOccupancyAt(row, col + 2) != chipColour) {
-					//TEST PRINT STATEMENT
-					//System.out.println("2nd Horizontal heuristic added");
-					hueristic++;
+					heuristic++;
 				}
 			}
 		}
@@ -527,9 +518,7 @@ public class AI {
 				   gb.getOccupancyAt(row, col) != chipColour &&
 				   gb.getOccupancyAt(row, col + 2) != chipColour &&
 				   gb.getOccupancyAt(row, col + 4) != chipColour) {
-					//TEST PRINT STATEMENT
-					//System.out.println("3rd Horizontal heuristic added");
-					hueristic++;
+					heuristic++;
 				}
 			}
 		}
@@ -548,9 +537,7 @@ public class AI {
 				   gb.getOccupancyAt(row, col + 2) != chipColour &&
 				   gb.getOccupancyAt(row, col + 4) != chipColour  &&
 				   gb.getOccupancyAt(row, col + 6) != chipColour) {
-					//TEST PRINT STATEMENT
-					//System.out.println("4th Horizontal heuristic added");
-					hueristic++;
+					heuristic++;
 				}
 			}
 		}
@@ -570,9 +557,7 @@ public class AI {
 				   gb.getOccupancyAt(row + 2, col) != chipColour &&
 				   gb.getOccupancyAt(row + 1, col) != chipColour &&
 				   gb.getOccupancyAt(row, col) != chipColour) {
-					//TEST PRINT STATEMENT
-					//System.out.println("1st Vertical heuristic added");
-					hueristic++;
+					heuristic++;
 				}
 			}
 		}
@@ -591,9 +576,7 @@ public class AI {
 				   gb.getOccupancyAt(row + 1, col) != chipColour &&
 				   gb.getOccupancyAt(row, col) != chipColour &&
 				   gb.getOccupancyAt(row - 1, col) != chipColour) {
-					//TEST PRINT STATEMENT
-					//System.out.println("2nd Vertical heuristic added");
-					hueristic++;
+					heuristic++;
 				}
 			}
 		}
@@ -612,9 +595,7 @@ public class AI {
 				   gb.getOccupancyAt(row, col) != chipColour &&
 				   gb.getOccupancyAt(row - 1, col) != chipColour &&
 				   gb.getOccupancyAt(row - 2, col) != chipColour) {
-					//TEST PRINT STATEMENT
-					//System.out.println("3rd Vertical heuristic added");
-					hueristic++;
+					heuristic++;
 				}
 			}
 		}
@@ -633,9 +614,7 @@ public class AI {
 				   gb.getOccupancyAt(row - 1, col) != chipColour &&
 				   gb.getOccupancyAt(row - 2, col) != chipColour &&
 				   gb.getOccupancyAt(row - 3, col) != chipColour) {
-					//TEST PRINT STATEMENT
-					//System.out.println("4th Vertical heuristic added");
-					hueristic++;
+					heuristic++;
 				}
 			}
 		}
@@ -655,9 +634,7 @@ public class AI {
 				   gb.getOccupancyAt(row - 2, col - 4) != chipColour &&
 				   gb.getOccupancyAt(row - 1, col - 2) != chipColour &&
 				   gb.getOccupancyAt(row, col) != chipColour) {
-					//TEST PRINT STATEMENT
-					//System.out.println("1st Left Down Diagonal heuristic added");
-					hueristic++;
+					heuristic++;
 				}
 			}
 		}
@@ -676,9 +653,7 @@ public class AI {
 				   gb.getOccupancyAt(row - 1, col - 2) != chipColour &&
 				   gb.getOccupancyAt(row, col) != chipColour &&
 				   gb.getOccupancyAt(row + 1, col + 2) != chipColour) {
-					//TEST PRINT STATEMENT
-					//System.out.println("2nd Left Down Diagonal heuristic added");
-					hueristic++;
+					heuristic++;
 				}
 			}
 		}
@@ -697,9 +672,7 @@ public class AI {
 				   gb.getOccupancyAt(row, col) != chipColour &&
 				   gb.getOccupancyAt(row + 1, col + 2) != chipColour &&
 				   gb.getOccupancyAt(row + 2, col + 4) != chipColour) {
-					//TEST PRINT STATEMENT
-					//System.out.println("3rd Left Down Diagonal heuristic added");
-					hueristic++;
+					heuristic++;
 				}
 			}
 		}
@@ -718,9 +691,7 @@ public class AI {
 				   gb.getOccupancyAt(row + 1, col + 2) != chipColour &&
 				   gb.getOccupancyAt(row + 2, col + 4) != chipColour &&
 				   gb.getOccupancyAt(row + 3, col + 6) != chipColour) {
-					//TEST PRINT STATEMENT
-					//System.out.println("4th Left Down Diagonal heuristic added");
-					hueristic++;
+					heuristic++;
 				}
 			}
 		}
@@ -740,9 +711,7 @@ public class AI {
 				   gb.getOccupancyAt(row + 2, col - 4) != chipColour &&
 				   gb.getOccupancyAt(row + 1, col - 2) != chipColour &&
 				   gb.getOccupancyAt(row, col) != chipColour) {
-					//TEST PRINT STATEMENT
-					//System.out.println("1st Left Up Diagonal heuristic added");
-					hueristic++;
+					heuristic++;
 				}
 			}
 		}
@@ -761,9 +730,7 @@ public class AI {
 				   gb.getOccupancyAt(row + 1, col - 2) != chipColour &&
 				   gb.getOccupancyAt(row, col) != chipColour &&
 				   gb.getOccupancyAt(row - 1, col + 2) != chipColour) {
-					//TEST PRINT STATEMENT
-					//System.out.println("2nd Left Up Diagonal heuristic added");
-					hueristic++;
+					heuristic++;
 				}
 			}
 		}
@@ -782,9 +749,7 @@ public class AI {
 				   gb.getOccupancyAt(row, col) != chipColour &&
 				   gb.getOccupancyAt(row - 1, col + 2) != chipColour &&
 				   gb.getOccupancyAt(row - 2, col + 4) != chipColour) {
-					//TEST PRINT STATEMENT
-					//System.out.println("3rd Left Up Diagonal heuristic added");
-					hueristic++;
+					heuristic++;
 				}
 			}
 		}
@@ -803,13 +768,11 @@ public class AI {
 				   gb.getOccupancyAt(row - 1, col + 2) != chipColour &&
 				   gb.getOccupancyAt(row - 2, col + 4) != chipColour &&
 				   gb.getOccupancyAt(row - 3, col + 6) != chipColour) {
-					//TEST PRINT STATEMENT
-					//System.out.println("4th Left Up Diagonal heuristic added");
-					hueristic++;
+					heuristic++;
 				}
 			}
 		}
-		return hueristic;
+		return heuristic;
 	}// End of aiCalculation
 }// End of AI
 

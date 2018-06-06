@@ -51,7 +51,6 @@ public class Main {
                     //System.out.println(points);
                     ai.addPoints(points, i);
                 }
-
             }
 
             //Its the AI's turn

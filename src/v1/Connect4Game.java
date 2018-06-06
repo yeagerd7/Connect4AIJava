@@ -415,14 +415,14 @@ public class Connect4Game {
                 return true;
             }
         }
-        //Combo of Column 7 and Row 3 is checked above (line 309)
-        //Combo of Column 7 and Row 4 is checked above (Line 326)
-        //Combo of Column 7 and Row 5 is checked above (Line 283)
-        //Combo of Column 9 and Row 1 is checked above (Line 345)
-        //Combo of Column 9 abd Row 2 is checked above (Line 357)
-        //Combo of Column 9 and Row 3 is checked above (Line 297)
-        //Combo of Column 9 and Row 4 is checked above (Line 264)
-        //Combo of Column 11 and Row 0 is checked above (Line 338)
+        //Combo of Column 7 and Row 3 is checked above (line 353)
+        //Combo of Column 7 and Row 4 is checked above (Line 370)
+        //Combo of Column 7 and Row 5 is checked above (Line 327)
+        //Combo of Column 9 and Row 1 is checked above (Line 389)
+        //Combo of Column 9 abd Row 2 is checked above (Line 401)
+        //Combo of Column 9 and Row 3 is checked above (Line 341)
+        //Combo of Column 9 and Row 4 is checked above (Line 308)
+        //Combo of Column 11 and Row 0 is checked above (Line 382)
         else if(column == 11 && (row == 1 || row == 2)) {
             if(gameBoard[row + 2][column - 4] != ' ' &&
               (gameBoard[row + 2][column - 4] == gameBoard[row + 1][column - 2] &&
@@ -435,7 +435,7 @@ public class Connect4Game {
                 return true;
             }
         }
-        //Combo of Column 11 and Row 3 is checked above (Line 277)
+        //Combo of Column 11 and Row 3 is checked above (Line 334)
         else if(column == 13 && (row == 0 || row == 1 || row == 2)) {
             if(gameBoard[row + 3][column - 6] != ' ' &&
               (gameBoard[row + 3][column - 6] == gameBoard[row + 2][column - 4] &&
@@ -490,8 +490,8 @@ public class Connect4Game {
                 return true;
             }
         }
-        // Combo of Column 5 and Row 0 is checked above (Line 411)
-        // Combo of Column 5 and Row 1 is checked above (Line 418)
+        // Combo of Column 5 and Row 0 is checked above (Line 455)
+        // Combo of Column 5 and Row 1 is checked above (Line 462)
         else if((column == 5 || column == 7) && row == 2) {
             if(gameBoard[row + 1][column + 2] != ' ' &&
               (gameBoard[row + 1][column + 2] == gameBoard[row + 2][column + 4] &&
@@ -528,9 +528,9 @@ public class Connect4Game {
                 return true;
             }
         }
-        // Combo of Column 7 and Row 0 is checked above (Line 411)
-        // Combo of Column 7 and Row 1 is checked above (Line 418)
-        // Combo of Column 7 and Row 2 is checked above (Line 451)
+        // Combo of Column 7 and Row 0 is checked above (Line 455)
+        // Combo of Column 7 and Row 1 is checked above (Line 462)
+        // Combo of Column 7 and Row 2 is checked above (Line 495)
         else if((column == 7 || column == 9) && row == 3) {
             if(gameBoard[row - 1][column - 2] != ' ' &&
               (gameBoard[row - 1][column - 2] == gameBoard[row + 1][column + 2] &&
@@ -567,12 +567,12 @@ public class Connect4Game {
                 return true;
             }
         }
-        // Combo of Column 9 and Row 1 is checked above (Line 442)
-        // Combo of Column 9 and Row 2 is checked above (Line 468)
-        // Combo of Column 9 and Row 3 is checked above (Line 490)
-        // Combo of Column 9 and Row 4 is checked above (Line 507)
-        // Combo of Column 9 and Row 5 is checked above (Line 519)
-        // Combo of Column 11 and Row 2 is checked above (Line 480)
+        // Combo of Column 9 and Row 1 is checked above (Line 486)
+        // Combo of Column 9 and Row 2 is checked above (Line 512)
+        // Combo of Column 9 and Row 3 is checked above (Line 534)
+        // Combo of Column 9 and Row 4 is checked above (Line 551)
+        // Combo of Column 9 and Row 5 is checked above (Line 563)
+        // Combo of Column 11 and Row 2 is checked above (Line 524)
         else if(column == 11 && row == 3) {
             if(gameBoard[row - 2][column - 4] != ' ' &&
               (gameBoard[row - 2][column - 4] == gameBoard[row - 1][column - 2] &&
@@ -585,8 +585,8 @@ public class Connect4Game {
                 return true;
             }
         }
-        // Combo of Column 11 and Row 4 is checked above (Line 507)
-        // Combo of Column 11 and Row 5 is checked above (Line 519)
+        // Combo of Column 11 and Row 4 is checked above (Line 551)
+        // Combo of Column 11 and Row 5 is checked above (Line 563)
         else if(column == 13 && (row == 3 || row == 4)) {
             if(gameBoard[row - 3][column - 6] != ' ' &&
               (gameBoard[row - 3][column - 6] == gameBoard[row - 2][column - 4] &&
@@ -594,7 +594,7 @@ public class Connect4Game {
                 return true;
             }
         }
-        // Combo of Column 13 and Row 5 is checked above (Line 519)
+        // Combo of Column 13 and Row 5 is checked above (Line 563)
         //Everything failed so we return false
         return false;
     }

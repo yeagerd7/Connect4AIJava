@@ -19,7 +19,7 @@ public class Main {
                 int column = Integer.parseInt(br.readLine().trim());
                 boolean validInput = false;
                 boolean unFilledColumn = false;
-                while (validInput == false || unFilledColumn == false) {
+                while (!validInput || !unFilledColumn) {
                     while (column > 6 || column < 0) {
                         System.out.print("Please enter a valid column (0, 1, 2, 3, 4, 5 ,6): ");
                         column = Integer.parseInt(br.readLine().trim());
@@ -97,11 +97,11 @@ public class Main {
                                 !game.columnFilled(2 * i + 1)) {
                             //TEST PRINT STATEMENT
                             //System.out.println("Winnable Move!!");
-                            if (winnableMoveExists == false) {
+                            if (!winnableMoveExists) {
                                 winnableMoveExists = true;
                                 column = 2 * i + 1;
                             }
-                            if (winnableMoveExists == true &&
+                            if (winnableMoveExists &&
                                     game.getOccupancyAt(game.getNextPositionInCol(2 * i + 1), 2 * i + 1) == 'Y') {
                                 column = 2 * i + 1;
                             }

@@ -84,9 +84,6 @@ public class Main {
                     // updates AI calculations by performing offensive calculations
                     for (int i = 0; i < 7; i++) {
                         int points;
-                        //FOR SOME REASON EVEN THOUGH THE COLUMN 0 IS FILLED AND UPON THE PROGRAM REALIZING IT IS FULL,
-                        //THE HEURISTIC IS GIVEN -100 TO ENSURE IT'LL BE THE LOWEST NUMBER AND SHOULD NOT BE PICKED BUT
-                        //IT STILL DOES!!!! WHAT THE FUCK IT IS ONLY DOING THIS ON 0
                         if (game.columnFilled(2 * i + 1)) {
                             points = -100;
                         } else {

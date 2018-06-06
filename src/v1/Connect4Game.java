@@ -41,7 +41,7 @@ public class Connect4Game {
     public void humanPlay(int column) {
         boolean spotFilled = false;
         int i = 6;
-        while(spotFilled == false) {
+        while(!spotFilled) {
             if(gameBoard[i][column] == ' ') {
                 gameBoard[i][column] = human;
                 spotFilled = true;
@@ -54,7 +54,7 @@ public class Connect4Game {
     {
         boolean spotFilled = false;
         int i = 6;
-        while(spotFilled == false && i > -1) {
+        while(!spotFilled && i > -1) {
             if(gameBoard[i][column] == ' ') {
                 gameBoard[i][column] = ai;
                 spotFilled = true;

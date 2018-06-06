@@ -47,7 +47,7 @@ public class Main {
                 // Calculates for opponents possible connect fours and the more a chip placement in a column can
                 // make a connect four, the more points it added
                 for (int i = 0; i < 7; i++) {
-                    int points = ai.aiCalculations(2 * i + 1, game, 'R');
+                    int points = ai.aiCalculations(2 * i + 1, game, 'Y');
                     ai.addPoints(points, i);
                 }
             }
@@ -62,7 +62,7 @@ public class Main {
                     game.AIPlay(column);
                     // updates AI calculations by preforming offensive calculations
                     for (int i = 0; i < 7; i++) {
-                        int points = ai.aiCalculations(2 * i + 1, game, 'Y');
+                        int points = ai.aiCalculations(2 * i + 1, game, 'R');
                         ai.addPoints(points, i);
                         int currentCalculation = ai.getCalculations().get(i).peek();
                         calculationsString += currentCalculation + " ";

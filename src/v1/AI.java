@@ -648,8 +648,7 @@ public class AI {
 		* |_|_|_|_|_|_|_|
 		* |_|_|_|_|_|_|_|
 		*/
-		if(col - 6 >= 1 && col - 4 >= 1 && col - 2 >= 1 && col >= 1 &&
-		   row - 3 >= 0 && row - 2 >= 0 && row - 1 >= 0 && row >= 0) {
+		if(col - 6 >= 1 && col - 4 >= 1 && col - 2 >= 1 && col >= 1 && row - 3 >= 0 && row - 2 >= 0 && row - 1 >= 0 && row >= 0) {
 			if(gb.isPlayableMove(row - 3, col - 6) && gb.isPlayableMove(row - 2, col - 4) &&
 			   gb.isPlayableMove(row - 1, col - 2) && gb.isPlayableMove(row, col)) {
 				if(gb.getOccupancyAt(row - 3, col - 6) != chipColour &&
@@ -670,8 +669,7 @@ public class AI {
 		* |_|_|_|_|?|_|_|
 		* |_|_|_|_|_|_|_|
 		*/
-		if(col - 4 >= 1 && col - 2 >= 1 && col >= 1 && col + 2 <= 13 &&
-		   row - 2 >= 0 && row - 1 >= 0 && row >= 0 && row + 1 <= 5) {
+		if(col - 4 >= 1 && col - 2 >= 1 && col >= 1 && col + 2 <= 13 && row - 2 >= 0 && row - 1 >= 0 && row >= 0 && row + 1 <= 5) {
 			if(gb.isPlayableMove(row - 2, col - 4) && gb.isPlayableMove(row - 1, col - 2) &&
 			   gb.isPlayableMove(row, col) && gb.isPlayableMove(row + 1, col + 2) ) {
 				if(gb.getOccupancyAt(row - 2, col - 4) != chipColour &&
@@ -692,8 +690,7 @@ public class AI {
 		* |_|_|_|_|_|?|_|
 		* |_|_|_|_|_|_|_|
 		*/
-		if(col - 2 >= 1 && col >= 2 && col + 2 <= 13 && col + 4 <= 13 &&
-		   row - 1 >= 0 && row >= 0 && row + 1 <= 5 && row + 2 <= 5) {
+		if(col - 2 >= 1 && col >= 2 && col + 2 <= 13 && col + 4 <= 13 && row - 1 >= 0 && row >= 0 && row + 1 <= 5 && row + 2 <= 5) {
 			if(gb.isPlayableMove(row - 1, col - 2) && gb.isPlayableMove(row,col) &&
 			   gb.isPlayableMove(row + 1, col + 2) && gb.isPlayableMove(row + 2, col + 4)) {
 				if(gb.getOccupancyAt(row - 1, col - 2) != chipColour &&
@@ -714,8 +711,7 @@ public class AI {
 		* |_|_|_|_|_|?|_|
 		* |_|_|_|_|_|_|?|
 		*/
-		if(col >= 1 && col + 2 <= 13 && col + 4 <= 13 && col + 6 <= 13 &&
-		   row >= 0 && row + 1 <= 5 && row + 2 <= 5 && row + 3 <= 5) {
+		if(col >= 1 && col + 2 <= 13 && col + 4 <= 13 && col + 6 <= 13 && row >= 0 && row + 1 <= 5 && row + 2 <= 5 && row + 3 <= 5) {
 			if(gb.isPlayableMove(row,col) && gb.isPlayableMove(row + 1, col + 2) &&
 			   gb.isPlayableMove(row + 2, col + 4) && gb.isPlayableMove(row + 3, col + 6)) {
 				if(gb.getOccupancyAt(row, col) != chipColour &&
@@ -737,8 +733,7 @@ public class AI {
 		* |_|?|_|_|_|_|_|
 		* |?|_|_|_|_|_|_|
 		*/
-		if(col - 6 >= 1 && col - 4 >= 1 && col - 2 >= 1 && col >= 1 &&
-		   row + 3 <= 5 && row + 2 <= 5 && row + 1 <= 5 && row >= 0) {
+		if(col - 6 >= 1 && col - 4 >= 1 && col - 2 >= 1 && col >= 1 && row + 3 <= 5 && row + 2 <= 5 && row + 1 <= 5 && row >= 0) {
 			if(gb.isPlayableMove(row + 3, col - 6) && gb.isPlayableMove(row + 2, col - 4) &&
 			   gb.isPlayableMove(row + 1, col - 2) && gb.isPlayableMove(row, col)) {
 				if(gb.getOccupancyAt(row + 3, col - 6) != chipColour &&
@@ -759,8 +754,7 @@ public class AI {
 		* |_|?|_|_|_|_|_|
 		* |_|_|_|_|_|_|_|
 		*/
-		if(col - 4 >= 1 && col - 2 >= 1 && col >= 1 && col + 2 <= 13 &&
-		   row + 2 <= 5 && row + 1 <= 5 && row >= 0 && row - 1 >= 0) {
+		if(col - 4 >= 1 && col - 2 >= 1 && col >= 1 && col + 2 <= 13 && row + 2 <= 5 && row + 1 <= 5 && row >= 0 && row - 1 >= 0) {
 			if(gb.isPlayableMove(row + 2, col - 4) && gb.isPlayableMove(row + 1, col - 2) &&
 			   gb.isPlayableMove(row, col) && gb.isPlayableMove(row - 1, col + 2)) {
 				if(gb.getOccupancyAt(row + 2, col - 4) != chipColour &&
@@ -781,8 +775,7 @@ public class AI {
 		* |_|_|?|_|_|_|_|
 		* |_|_|_|_|_|_|_|
 		*/
-		if(col - 2 >= 1 && col >= 1 && col + 2 <= 13 && col + 4 <= 13 &&
-		   row + 1 <= 5 && row >= 0 && row - 1 >= 0 && row - 2 >= 0) {
+		if(col - 2 >= 1 && col >= 1 && col + 2 <= 13 && col + 4 <= 13 && row + 1 <= 5 && row >= 0 && row - 1 >= 0 && row - 2 >= 0) {
 			if(gb.isPlayableMove(row + 1, col - 2) && gb.isPlayableMove(row, col) &&
 			   gb.isPlayableMove(row - 1, col + 2) && gb.isPlayableMove(row - 2, col + 4)) {
 				if(gb.getOccupancyAt(row + 1, col - 2) != chipColour &&
@@ -803,8 +796,7 @@ public class AI {
 		* |_|_|_|_|_|_|_|
 		* |_|_|_|_|_|_|_|
 		*/
-		if(col >= 1 && col + 2 <= 13 && col + 4 <= 13 && col + 6 <= 13 &&
-		   row >= 0 && row - 1 >= 0 && row - 2 >= 0 && row - 3 >= 0) {
+		if(col >= 1 && col + 2 <= 13 && col + 4 <= 13 && col + 6 <= 13 && row >= 0 && row - 1 >= 0 && row - 2 >= 0 && row - 3 >= 0) {
 			if(gb.isPlayableMove(row,col) && gb.isPlayableMove(row - 1, col + 2) &&
 			   gb.isPlayableMove(row - 2, col + 4) && gb.isPlayableMove(row - 3, col + 6)) {
 				if(gb.getOccupancyAt(row, col) != chipColour &&

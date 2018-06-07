@@ -37,7 +37,14 @@ public class Main {
                 }
 
                 game.humanPlay(column);
-                System.out.println("\nYou dropped a red chip at Column: " + column + "!\n");
+
+                if(column == 1) {
+                    System.out.println("\nYou dropped a red chip at Column 0\n");
+                }
+                else {
+                    System.out.println("\nYou dropped a red chip at Column " + (column - 1) / 2 + "\n");
+                }
+
                 game.printBoard();
 
                 // updates AI calculations by performing defensive calculations

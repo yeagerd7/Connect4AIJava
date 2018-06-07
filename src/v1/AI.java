@@ -1,8 +1,9 @@
 package v1;
 import java.util.Random;
 import java.util.Stack;
-import v1.Connect4Game;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
 
 public class AI {
 
@@ -435,6 +436,7 @@ public class AI {
 		int popThisColumn;
 		int newPoints;
 		// Pops all of the columns blocked
+		HashSet<Integer> columnsPopped = new HashSet<>();
 		for(int i = 0; i < locationsBlocked.size(); i++) {
 			popThisColumn = locationsBlocked.get(i);
 			if(popThisColumn == 1) {
@@ -443,15 +445,24 @@ public class AI {
 			else {
 				popThisColumn = (popThisColumn - 1) / 2;
 			}
-			calculations.get(popThisColumn).pop(); // pop columns blocked by chip placement
-			newPoints = aiCalculations(popThisColumn * 2 + 1, gb, 'R');// recalculates offensive points
-			addPoints(newPoints, popThisColumn);
+			if(!calculations.get(popThisColumn).isEmpty()) {
+				calculations.get(popThisColumn).pop(); // pop columns blocked by chip placement
+				if(!columnsPopped.contains(popThisColumn)) {
+					columnsPopped.add(popThisColumn);
+				}
+			}
+		}
+		//Columns that were popped are only recalculated once
+		Iterator<Integer> it = columnsPopped.iterator();
+		while(it.hasNext()) {
+			Integer columnToPop = it.next();
+			newPoints = aiCalculations(columnToPop, gb, 'R');// recalculates offensive points
+			addPoints(newPoints, columnToPop);
 		}
 	}// end of blockedMove
 
 	/*
-	 * Given a game board and a specific coordinate
-	 * this method will update a specific columns heuristic
+	 * Given a game board and a specific coordinate this method will update a specific columns heuristic
 	 */
 	public int aiCalculations(int col, Connect4Game gb, char chipColour) {
 		int heuristic = 0;

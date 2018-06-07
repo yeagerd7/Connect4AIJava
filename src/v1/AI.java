@@ -7,7 +7,7 @@ import java.util.Iterator;
 
 public class AI {
 
-    ArrayList<Stack<Integer>> calculations;
+    private ArrayList<Stack<Integer>> calculations;
 
     public AI() {
         calculations = new ArrayList<>();
@@ -61,12 +61,12 @@ public class AI {
         }
 	}
 
-	// If AI moves are blocked then it pops everything and recalculates
 	public void blockedMove(int column, Connect4Game gb) {
+
 		ArrayList<Integer> locationsBlocked = new ArrayList<>();
 		locationsBlocked.add(column);
 
-		int row = gb.getNextPositionInCol(column) + 1;
+		int row = gb.getNextPositionInCol(column) + 1; //Last position (row) played in column
 
 		// This will test all possible horizontal connect four
 		/*
@@ -435,9 +435,10 @@ public class AI {
 
 		int popThisColumn;
 		int newPoints;
-		// Pops all of the columns blocked
 		HashSet<Integer> columnsPopped = new HashSet<>();
-		for(int i = 0; i < locationsBlocked.size(); i++) {
+		int size = locationsBlocked.size();
+		// Pops all of the columns blocked
+		for(int i = 0; i < size; i++) {
 			popThisColumn = locationsBlocked.get(i);
 			if(popThisColumn == 1) {
 				popThisColumn = 0;
@@ -466,7 +467,7 @@ public class AI {
 	 */
 	public int aiCalculations(int col, Connect4Game gb, char chipColour) {
 		int heuristic = 0;
-		int row = gb.getNextPositionInCol(col);
+		int row = gb.getNextPositionInCol(col); //Next available position (row) in a column
 
 		// This will test all possible horizontal connect four
 		/* 

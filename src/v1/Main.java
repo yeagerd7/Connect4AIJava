@@ -1,6 +1,5 @@
 package v1;
 
-import java.util.Random;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -12,6 +11,7 @@ public class Main {
         int count = 0;
         while (game.getWinner() == 0) {
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
             //Its the human's turn
             if (game.getTurn() == 0) {
                 System.out.println("Its your turn!\n");
@@ -47,14 +47,12 @@ public class Main {
 
                 game.printBoard();
 
-                // updates AI calculations by performing defensive calculations
-                // If AI moves are blocked then it pops everything and recalculates
                 ai.blockedMove(column, game);
 
                 // Calculates for opponents possible connect fours and the more a chip placement in a column can
-                // make a connect four, the more points it added
+                // make a connect four, the more points its added
                 for (int i = 0; i < 7; i++) {
-                    int points = ai.aiCalculations(2 * i + 1, game, 'Y');
+                    int points = ai.aiCalculations(2 * i + 1, game, 'Y'); // defensive calculations
                     ai.addPoints(points, i);
                 }
             }
@@ -77,7 +75,7 @@ public class Main {
                         points = -100;
                     }
                     else {
-                        points = ai.aiCalculations(2 * i + 1, game, 'R');
+                        points = ai.aiCalculations(2 * i + 1, game, 'R'); //offensive calculations
                     }
 
                     ai.addPoints(points, i);
@@ -102,6 +100,7 @@ public class Main {
 
                 game.AIPlay(column);
                 game.printBoard();
+
                 System.out.println("Current Heuristic Calculation: " + calculationsString + "\n");
                 if (column == 1) {
                     System.out.println("AI placed a yellow chip at Column " + 0 + "\n");

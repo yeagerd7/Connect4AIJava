@@ -56,55 +56,45 @@ public class Main {
             else {
                 String calculationsString = "";
                 int column = 0;
-                if (count == 0) {
+                if(count == 0) {
                     System.out.println("The AI goes first!\n");
-                    column = 7;
-                    game.AIPlay(column);
-                    // updates AI calculations by preforming offensive calculations
-                    for (int i = 0; i < 7; i++) {
-                        int points = ai.aiCalculations(2 * i + 1, game, 'R');
-                        ai.addPoints(points, i);
-                        int currentCalculation = ai.getCalculations().get(i).peek();
-                        calculationsString += currentCalculation + " ";
-                    }
-                    game.printBoard();
                 }
                 else {
                     System.out.println("Its the AI's turn!\n");
-                    boolean winnableMoveExists = false;
-                    // updates AI calculations by performing offensive calculations
-                    for (int i = 0; i < 7; i++) {
-                        int points;
-                        if (game.columnFilled(2 * i + 1)) {
-                            points = -100;
-                        } else {
-                            points = ai.aiCalculations(2 * i + 1, game, 'R');
-                        }
-
-                        ai.addPoints(points, i);
-                        int currentCalculation = ai.getCalculations().get(i).peek();
-                        calculationsString += currentCalculation + " ";
-
-                        if (game.isWinnableMove(game.getNextPositionInCol(2 * i + 1), 2 * i + 1) &&
-                                !game.columnFilled(2 * i + 1)) {
-                            if (!winnableMoveExists) {
-                                winnableMoveExists = true;
-                                column = 2 * i + 1;
-                            }
-                            if(winnableMoveExists &&
-                                    game.getOccupancyAt(game.getNextPositionInCol(2 * i + 1) + 1, 2 * i + 1) == 'Y') {
-                                column = 2 * i + 1;
-                            }
-                        }
-                    }
-                    if (!winnableMoveExists) {
-                        column = ai.activateBrain();
-                        column = 2 * column + 1;
-                    }
-
-                    game.AIPlay(column);
-                    game.printBoard();
                 }
+                boolean winnableMoveExists = false;
+                // updates AI calculations by performing offensive calculations
+                for (int i = 0; i < 7; i++) {
+                    int points;
+                    if (game.columnFilled(2 * i + 1)) {
+                        points = -100;
+                    } else {
+                        points = ai.aiCalculations(2 * i + 1, game, 'R');
+                    }
+
+                    ai.addPoints(points, i);
+                    int currentCalculation = ai.getCalculations().get(i).peek();
+                    calculationsString += currentCalculation + " ";
+
+                    if (game.isWinnableMove(game.getNextPositionInCol(2 * i + 1), 2 * i + 1) &&
+                            !game.columnFilled(2 * i + 1)) {
+                        if (!winnableMoveExists) {
+                            winnableMoveExists = true;
+                            column = 2 * i + 1;
+                        }
+                        if (winnableMoveExists &&
+                                game.getOccupancyAt(game.getNextPositionInCol(2 * i + 1) + 1, 2 * i + 1) == 'Y') {
+                            column = 2 * i + 1;
+                        }
+                    }
+                }
+                if (!winnableMoveExists) {
+                    column = ai.activateBrain();
+                    column = 2 * column + 1;
+                }
+
+                game.AIPlay(column);
+                game.printBoard();
                 System.out.println("Current Heuristic Calculation: " + calculationsString + "\n");
                 if (column == 1) {
                     System.out.println("AI placed a yellow chip at Column " + 0 + "\n");

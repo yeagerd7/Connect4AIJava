@@ -68,7 +68,8 @@ public class Main {
                     int points;
                     if (game.columnFilled(2 * i + 1)) {
                         points = -100;
-                    } else {
+                    }
+                    else {
                         points = ai.aiCalculations(2 * i + 1, game, 'R');
                     }
 
@@ -82,8 +83,7 @@ public class Main {
                             winnableMoveExists = true;
                             column = 2 * i + 1;
                         }
-                        if (winnableMoveExists &&
-                                game.getOccupancyAt(game.getNextPositionInCol(2 * i + 1) + 1, 2 * i + 1) == 'Y') {
+                        if (winnableMoveExists && game.getOccupancyAt(game.getNextPositionInCol(2 * i + 1) + 1, 2 * i + 1) == 'Y') {
                             column = 2 * i + 1;
                         }
                     }

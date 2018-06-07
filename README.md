@@ -1,4 +1,4 @@
-    First off, I’d like to point out that this implementation of a Connect 4 game with an AI was built off of a preexisting 
+First off, I’d like to point out that this implementation of a Connect 4 game with an AI was built off of a preexisting 
 Connect 4 game prototype which can be found at the end of this paper.  That specific implementation allows two human players 
 to play against each other in the console window.  Some of the code is reused and altered to allow the second player (the one
 who places the yellow chips) to be used as an AI that would play against a human player in the console window of the IDE.  The
